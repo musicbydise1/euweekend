@@ -1,0 +1,174 @@
+/* Секция с декоративным градиентом в правом верхнем углу */
+.testimonials-section {
+    position: relative;
+    padding: 60px 20px;
+    background: #f9f9f9;
+    overflow: hidden; /* Чтобы скрыть часть псевдоэлемента, если нужно */
+}
+
+/* Псевдоэлемент с градиентом (пример) */
+.testimonials-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 200px;
+    background: linear-gradient(135deg, #8A56D1, #D67ECC);
+    border-bottom-left-radius: 100px;
+    z-index: 1;
+}
+
+/* Внутренний контейнер (чтобы контент был поверх псевдоэлемента) */
+.testimonials-inner {
+    position: relative;
+    z-index: 2; /* Поверх градиента */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Сетка карточек */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Карточка */
+.testimonial-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Блок с фото */
+.photo {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+/* Картинка */
+.photo img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Имя + возраст */
+.name-age {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.age {
+    font-size: 14px;
+    color: #888;
+}
+
+/* Текст */
+.testimonial-card p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* Видеокнопка поверх изображения (Назар) */
+.video-wrapper {
+    position: relative;
+}
+
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255,255,255,0.8);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+    cursor: pointer;
+}
+
+.play-icon img {
+    width: 16px;
+    height: 16px;
+}
+
+.play-icon:hover {
+    background: rgba(255,255,255,1);
+}
+
+/* Адаптивность (пример) */
+@media (max-width: 768px) {
+    .testimonials-section::before {
+        width: 200px;
+        height: 120px;
+    }
+    .name {
+        font-size: 15px;
+    }
+    .age {
+        font-size: 13px;
+    }
+}
+
+.stats-section {
+    background: #3F52E3;    /* Фиолетовый/синий цвет */
+    border-radius: 10px;    /* Скруглённые углы */
+    padding: 40px 20px;     /* Внутренние отступы */
+    color: #fff;            /* Белый текст */
+    margin: 40px 0;         /* Отступы сверху и снизу секции */
+}
+
+.stats-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;      /* Ширина контейнера */
+    margin: 0 auto;         /* Центровка */
+    gap: 40px;              /* Расстояние между блоками */
+}
+
+/* Левая часть (крупная цифра, подпись) */
+.stats-number h2 {
+    font-size: 48px;        /* Крупный шрифт для цифры */
+    font-weight: 700;
+    margin: 0 0 8px 0;      /* Отступ снизу */
+}
+
+.stats-number p {
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Правая часть (описание/цитата) */
+.stats-description p {
+    font-size: 18px;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Адаптивность (на мобильных в одну колонку) */
+@media (max-width: 768px) {
+    .stats-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+}

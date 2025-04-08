@@ -1,0 +1,273 @@
+/* Секция */
+.study-dubai-section {
+    background: #fff; /* Или нужный фон */
+    padding: 60px 20px;
+    border-radius: 10px; /* Если хотите скруглённые углы */
+}
+
+/* Внутренний контейнер (2 колонки) */
+.study-dubai-inner {
+    display: flex;
+    flex-wrap: wrap; /* Чтобы на мобильных колонки шли друг под другом */
+    gap: 40px;
+    align-items: center;
+}
+
+/* Левая колонка (текст) */
+.study-dubai-left {
+    flex: 1 1 400px; /* Минимальная ширина, при желании */
+    max-width: 600px;
+}
+
+.study-dubai-left h2 {
+    font-size: 24px;
+    color: #FB5B0D; /* Оранжевый заголовок */
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.study-dubai-left p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+    margin-bottom: 16px;
+}
+
+/* Правая колонка (видео-миниатюра) */
+.study-dubai-right {
+    flex: 1 1 400px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Обёртка для миниатюры и иконки */
+.video-wrapper {
+    position: relative;
+    max-width: 500px; /* Ширина подбирается под ваш дизайн */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+/* Сама миниатюра */
+.video-thumb {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Иконка Play по центру */
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255,255,255,0.8);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.play-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+.play-icon:hover {
+    background: rgba(255,255,255,1);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .study-dubai-inner {
+        flex-direction: column;
+    }
+    .study-dubai-right {
+        margin-top: 20px;
+    }
+}
+
+/* Секция */
+.steps-section {
+    padding: 60px 20px;
+    background: #f9f9f9; /* Или нужный фон */
+    border-radius: 10px; /* Если хотите скруглённые углы */
+}
+
+/* Контейнер */
+.steps-inner {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    padding: 40px;
+}
+
+/* Сетка карточек (2 колонки) */
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+    gap: 20px; /* Отступ между карточками */
+    margin-bottom: 30px; /* Отступ снизу (перед кнопкой) */
+}
+
+/* Карточка */
+.step-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Заголовок карточки с градиентом */
+.step-card-header {
+    background: linear-gradient(135deg, #8A56D1 0%, #D67ECC 100%);
+    padding: 20px;
+    color: #fff;
+    font-weight: 600;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.step-card-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Тело карточки (текст) */
+.step-card-body {
+    padding: 20px;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Кнопка "Оставить заявку" */
+.steps-cta {
+    text-align: right; /* Выравниваем кнопку справа */
+}
+
+.steps-btn {
+    display: inline-block;
+    background: #FB5B0D; /* Оранжевый */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.steps-btn:hover {
+    background: #d54a0b;
+}
+
+/* Адаптивность (на мобильных в 1 колонку) */
+@media (max-width: 768px) {
+    .steps-grid {
+        grid-template-columns: 1fr; /* Одна колонка */
+    }
+}
+
+.university-section {
+    padding: 60px 20px;
+    background: #fff; /* Или нужный цвет фона */
+}
+
+.university-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.university-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #FB5B0D; /* Оранжевый заголовок */
+    margin-bottom: 30px;
+}
+
+/* Обёртка для таблицы */
+.university-table-wrapper {
+    margin-bottom: 40px; /* Отступ от таблицы до блока "Не нашли..." */
+    overflow-x: auto;    /* Если таблица шире контейнера, появится горизонтальный скролл */
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+/* Таблица */
+.university-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 400px; /* Минимальная ширина */
+    background: #fff;
+    border-radius: 10px;
+}
+
+/* Заголовки столбцов */
+.university-table thead {
+    background: #f2f2f2; /* Светло-серый фон для заголовка */
+}
+
+.university-table th {
+    text-align: left;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Строки таблицы */
+.university-table td {
+    padding: 16px;
+    font-size: 15px;
+    color: #555;
+    border-bottom: 1px solid #eee;
+}
+
+/* Последняя строка без border-bottom (если нужно) */
+.university-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Блок "Не нашли свой университет?" */
+.university-contact {
+    background: #f8f8f8;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+.university-contact h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.university-contact p {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #555;
+}
+
+/* Адаптивность (пример) */
+@media (max-width: 768px) {
+    .university-title {
+        text-align: center;
+    }
+    .university-contact {
+        margin-top: 20px;
+    }
+}

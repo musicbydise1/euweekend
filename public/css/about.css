@@ -1,0 +1,362 @@
+/* Обёртка секции */
+.achievements-section {
+    padding: 60px 20px;
+    /* Можно добавить фон или цвет, если требуется */
+}
+
+/* Внутренний контейнер */
+.achievements-inner {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Позволит перестраивать колонки на мобильных */
+}
+
+/* Левая часть (текст) */
+.achievements-left {
+    flex: 1 1 400px;
+    max-width: 500px;
+}
+
+.achievements-left h2 {
+    font-size: 24px;
+    color: #FB5B0D;  /* Оранжевый заголовок */
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.achievements-left p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    color: #555;     /* Серый цвет текста */
+}
+
+/* Кнопка */
+.achievements-btn {
+    display: inline-block;
+    background: #FB5B0D; /* Оранжевый */
+    color: #fff;
+    padding: 14px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.achievements-btn:hover {
+    background: #d54a0b; /* Темнее при ховере */
+}
+
+/* Правая часть (видео) */
+.achievements-right {
+    flex: 1 1 400px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Обёртка для миниатюры */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;           /* Ширина подбирается под ваш дизайн */
+    border-radius: 12px;
+    overflow: hidden;           /* Чтобы скруглённые углы применялись и к изображению */
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+/* Миниатюра видео */
+.video-thumb {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* Иконка Play */
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255,255,255,0.8);
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.play-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+.team-section {
+    padding: 60px 20px; /* Отступы сверху и снизу */
+}
+
+/* Внутренний контейнер, состоящий из трех колонок */
+.team-inner {
+    display: flex;
+    flex-wrap: wrap;    /* Чтобы на мобильных колонки шли друг под другом */
+    gap: 40px;          /* Расстояние между колонками */
+    align-items: flex-start;
+}
+
+/* === Левая колонка (заголовок и короткий текст) === */
+.team-left {
+    flex: 1 1 300px;
+    max-width: 300px;   /* Ширина подбирается по вкусу */
+}
+
+.team-left h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #FB5B0D; /* Оранжевый цвет */
+    margin-bottom: 16px;
+}
+
+.team-left p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* === Средняя колонка (две картинки) === */
+.team-center {
+    flex: 1 1 300px;
+    position: relative; /* Для перекрытия */
+    max-width: 350px;   /* При необходимости */
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* Обёртка для каждой картинки */
+.img-wrapper {
+    position: absolute;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    width: 200px;       /* Ширина картинки (можно менять) */
+}
+
+/* Верхняя картинка (меньше, сдвинута вверх) */
+.img-top {
+    top: 0;
+    left: 0;
+    z-index: 2;         /* Выше нижней */
+}
+
+/* Нижняя картинка (чуть больше, смещена вниз и вправо) */
+.img-bottom {
+    top: 80px;
+    left: 80px;
+    width: 220px;       /* Больше */
+    z-index: 1;
+}
+
+.img-wrapper img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* === Правая колонка (текст + кнопка) === */
+.team-right {
+    flex: 1 1 300px;
+    max-width: 350px; /* Можно увеличить при желании */
+}
+
+.team-right p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+    margin-bottom: 16px;
+}
+
+/* Кнопка */
+.team-btn {
+    display: inline-block;
+    background: #FB5B0D; /* Оранжевый */
+    color: #fff;
+    padding: 14px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.team-btn:hover {
+    background: #d54a0b; /* Темнее при ховере */
+}
+
+/* === Адаптивность для мобильных устройств === */
+@media (max-width: 992px) {
+    /* Подправим смещение картинок */
+    .img-bottom {
+        top: 60px;
+        left: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-inner {
+        flex-direction: column; /* Колонки идут друг под другом */
+    }
+    .team-left, .team-center, .team-right {
+        max-width: 100%;
+    }
+    /* Уберём absolute, чтобы картинки шли по порядку */
+    .team-center {
+        position: static;
+        display: block;
+        margin-bottom: 20px;
+    }
+    .img-wrapper {
+        position: static;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    .img-bottom {
+        margin-top: -20px; /* Небольшое наложение (опционально) */
+        left: 0;
+    }
+}
+
+/* Секция галереи */
+.gallery-section {
+    padding: 60px 20px;
+    background: #fff; /* Или любой другой цвет/фон */
+}
+
+/* Внутренний контейнер */
+.gallery-inner {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет перестраивать блоки на мобильных */
+    gap: 40px;       /* Расстояние между текстовым блоком и слайдером */
+    align-items: center;
+}
+
+/* Текст (заголовок + абзац) */
+.gallery-text {
+    flex: 1 1 300px;
+    max-width: 400px; /* Ширина, чтобы текст не растягивался */
+}
+
+.gallery-text h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #FB5B0D; /* Оранжевый заголовок */
+    margin-bottom: 16px;
+}
+
+.gallery-text p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* Контейнер слайдера (Swiper) */
+.mySwiperGallery {
+    flex: 2 1 400px;
+    width: 100%; /* Чтобы слайдер занимал доступное пространство */
+}
+
+/* Карточка галереи (слайд) */
+.gallery-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    overflow: hidden; /* Скруглённые углы */
+}
+
+/* Изображение внутри карточки */
+.gallery-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Пагинация (точки) */
+.swiper-pagination-bullet {
+    background: #ccc; /* Цвет точек */
+    opacity: 1;       /* По умолчанию Swiper может ставить 0.2 */
+}
+
+.swiper-pagination-bullet-active {
+    background: #FB5B0D; /* Оранжевый цвет активной точки */
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .gallery-inner {
+        flex-direction: column; /* Текст над слайдером */
+    }
+    .gallery-text {
+        max-width: 100%;
+    }
+    .mySwiperGallery {
+        max-width: 100%;
+    }
+}
+
+/* Секция с градиентным фоном */
+.cta-gradient-section {
+    /* Пример градиента (фиолетово-оранжевый). Подберите точные цвета из макета */
+    background: linear-gradient(90deg, #8A56D1 0%, #D67ECC 100%);
+    border-radius: 10px;      /* Скруглённые углы */
+    margin: 40px 0;           /* Отступ сверху и снизу секции */
+    padding: 20px 0;          /* Внутренние отступы */
+    color: #fff;              /* Белый текст */
+}
+
+/* Контейнер внутри */
+.cta-gradient-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Блок с заголовком и описанием */
+.cta-gradient-text h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.cta-gradient-text p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Кнопка */
+.cta-gradient-btn {
+    background: #000;         /* Чёрный фон */
+    color: #fff;              /* Белый текст */
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.cta-gradient-btn:hover {
+    background: #333;         /* Темнее при наведении */
+}
+
+/* Адаптивность (на мобильных кнопка может уходить вниз) */
+@media (max-width: 768px) {
+    .cta-gradient-inner {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .cta-gradient-text {
+        text-align: center;
+    }
+}

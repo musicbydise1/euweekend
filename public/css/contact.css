@@ -1,0 +1,144 @@
+.departments-section {
+    padding: 60px 20px;
+    background: #fff; /* Или нужный цвет */
+}
+
+/* Заголовок */
+.departments-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #FB5B0D; /* Оранжевый цвет */
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+/* Сетка: 2 колонки */
+.departments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Карточка */
+.department-card {
+    background: #3F52E3; /* Ярко-синий/фиолетовый цвет (пример) */
+    color: #fff;
+    border-radius: 10px;
+    padding: 16px 20px;
+    position: relative;
+    transition: background 0.3s;
+}
+
+/* При наведении чуть темнее */
+.department-card:hover {
+    background: #2c3fad;
+}
+
+/* Шапка карточки (заголовок + стрелка) */
+.department-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer; /* При желании, если хотим кликабельность */
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Стрелка */
+.department-header .arrow {
+    font-size: 16px;
+    transition: transform 0.3s;
+}
+
+/* Скрытый контент */
+.department-content {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #f0f0f0;
+}
+
+/* По умолчанию считаем контент скрытым (если хотим динамику) */
+/* .department-card .department-content {
+    display: none;
+} */
+
+/* Если карточка "expanded", показываем контент */
+.department-card.expanded .department-content {
+    display: block;
+}
+
+/* Если expanded, стрелку разворачиваем (пример) */
+.department-card.expanded .arrow {
+    transform: rotate(180deg);
+}
+
+.map-section {
+    padding: 60px 20px;
+    background: #fff; /* Или нужный цвет */
+}
+
+/* Внутренний контейнер (две колонки) */
+.map-inner {
+    display: flex;
+    flex-wrap: wrap; /* Чтобы на узких экранах перестраивалось */
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* Левая колонка */
+.map-info-box {
+    flex: 0 0 300px; /* Фиксированная ширина, при желании */
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    padding: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+.map-info-box h3 {
+    font-size: 18px;
+    color: #FB5B0D; /* Оранжевый заголовок */
+    margin-bottom: 10px;
+}
+
+.map-info-box h4 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+/* Правая колонка (карта) */
+.map-embed {
+    flex: 1 1 auto;
+    min-width: 300px;
+    height: 450px; /* Высота совпадает с iframe (если нужно) */
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    /* Если хотите скруглённые углы карты */
+}
+
+/* Стили для самого iframe */
+.map-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: none; /* Убираем рамку */
+    display: block;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .map-inner {
+        flex-direction: column;
+    }
+    .map-info-box {
+        flex: none;
+        width: 100%;
+    }
+    .map-embed {
+        width: 100%;
+        height: 300px; /* Уменьшенная высота карты на мобильных */
+    }
+}

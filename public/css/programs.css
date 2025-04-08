@@ -1,0 +1,474 @@
+/* Обёртка секции */
+.programs-section {
+}
+
+/* Внутренний контейнер */
+.programs-inner {
+    padding: 40px;
+}
+
+.hero-programs .hero-content-container {
+    display: flex;
+    align-items: center;  /* или flex-start, если нужно прижать к верху */
+    justify-content: space-between;
+    gap: 20px;           /* Если нужно отступ внутри */
+}
+
+.hero-programs .hero-content {
+    flex: 1 1 50%;
+    max-width: 600px;          /* Ограничиваем ширину текста, если нужно */
+    text-align: left;
+    margin-top: 25px;
+    margin-right: 90px;
+    margin-left: 90px;
+}
+.hero-programs .hero-buttons {
+    justify-content: flex-start;
+    flex-wrap: nowrap ;
+}
+
+.hero-programs .hero-content h1,
+.hero-programs .hero-content p {
+    text-align: left;
+    margin: 0;
+}
+.hero-programs .hero-content p {
+    margin-top: 25px;
+    width: 90%;
+}
+
+
+
+.hero-programs .hero-img {
+    flex: 1 1 50%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+    grid-auto-rows: auto;                 /* высота по содержимому */
+    gap: 10px;                            /* расстояние между картинками */
+    justify-content: center;              /* центрирование, если нужно */
+    z-index: 999;
+    margin-top: 40px;
+}
+
+.hero-programs .hero-img img:nth-child(1) {
+    max-width: 248px;
+    height: 204px;
+    object-fit: cover;
+}
+
+
+.hero-programs .hero-img img:nth-child(2) {
+    max-width: 216px;
+    height: 303px;
+    object-fit: cover;
+}
+
+.hero-programs .hero-img img:nth-child(3) {
+    max-width: 248px;
+    height: 303px;
+    object-fit: cover;
+    position: relative;
+    top: -6.2rem;
+}
+
+.hero-programs .hero-img img:nth-child(4) {
+    max-width: 216px;
+    height: 204px;
+    object-fit: cover;
+}
+
+/* Заголовок и подзаголовок */
+.programs-header {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.programs-header h2 {
+    font-size: 30px;
+    font-weight: 600;
+    color: #FB5B0D; /* Оранжевый заголовок */
+    margin-bottom: 20px;
+}
+
+.programs-header p {
+    font-size: 17px;
+    font-weight: 400;
+    color: #262323;
+    margin-bottom: 60px;
+}
+
+/* Фильтры (кнопки) */
+.programs-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.btn-time-arrival {
+    background: #575EFF;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-time-arrival:hover {
+    background: #3F52E3;
+}
+
+.btn-filter {
+    background: transparent;
+    color: #575EFF;
+    border: 1px solid #575EFF;
+    border-radius: 10px;
+    padding: 14px 30px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-decoration: none;
+}
+
+.btn-filter:hover {
+    background: #ddd;
+}
+
+.btn-filter.active {
+    background: #575EFF;
+    color: #fff;
+}
+
+/* Сетка карточек программ */
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Карточка */
+.program-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease;
+}
+
+.program-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Обёртка изображения */
+.program-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 200px; /* Можно менять */
+    overflow: hidden;
+}
+
+.program-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Бейдж «premium pack» */
+.program-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #FB5B0D;
+    color: #fff;
+    font-size: 12px;
+    padding: 6px 8px;
+    border-radius: 6px;
+}
+
+/* Кнопка «Read More» по центру картинки */
+.program-read-more {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255,255,255,0.8);
+    color: #FB5B0D;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: none; /* Скрыта по умолчанию */
+    transition: background 0.3s;
+}
+
+.program-read-more:hover {
+    background: rgba(255,255,255,1);
+}
+
+/* Показывать «Read More» при наведении */
+.program-card:hover .program-read-more {
+    display: inline-block;
+}
+
+/* Информация о программе (заголовок + дата) */
+.program-info {
+    padding: 16px;
+}
+
+.program-info h3 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.program-date {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Кнопка «Show More» */
+.programs-show-more {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.btn-show-more {
+    background: #FB5B0D;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-show-more:hover {
+    background: #d54a0b;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .program-img-wrapper {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .program-img-wrapper {
+        height: 150px;
+    }
+}
+
+/* Общий контейнер */
+.time-arrival-dropdown {
+    position: relative; /* Нужно, чтобы .time-arrival-menu позиционировался относительно */
+    display: inline-block;
+}
+
+/* Кнопка "Время Заезда" */
+
+
+.btn-time-arrival:hover {
+    border-color: #999;
+}
+
+/* Само меню (dropdown) */
+.time-arrival-menu {
+    position: absolute;
+    top: 50px; /* Отступ от кнопки, подберите */
+    left: 0;
+    width: 280px; /* Ширина по вкусу */
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 16px;
+    z-index: 999;
+    display: none; /* По умолчанию скрыто (но мы меняем JS-ом) */
+}
+
+/* Заголовок вкладок (Календарь / Гибкие даты) */
+.time-arrival-tabs {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 16px;
+}
+
+.time-tab {
+    flex: 1;
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    padding: 8px 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.day.in-range {
+    background: #5866e0; /* более светлый синий, напр. */
+    color: #fff;
+    border-radius: 0px;
+}
+
+.day.start-day {
+    border-radius: 20px 0px 0px 20px;
+}
+.day.end-day {
+    border-radius: 0px 20px 20px 0px;
+}
+
+.day.start-day,
+.day.end-day {
+    background: #5866e0; /* основной синий */
+    color: #fff;
+}
+
+.time-tab.active {
+    color: #fff;
+    background: #5866e0; /* Пример цвета для активного таба */
+    border-radius: 6px;
+}
+
+.time-tab:hover {
+    background: #f2f2f2;
+    border-radius: 6px;
+}
+
+/* Содержимое вкладок */
+.time-arrival-content {
+    min-height: 200px; /* Чтобы не прыгало */
+}
+.days-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+/* Календарь */
+.calendar-view {
+    text-align: center;
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.calendar-header .calendar-month-year {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.calendar-nav button {
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.calendar-days {
+}
+
+.day-name {
+    font-weight: 600;
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+}
+
+.day {
+    text-align: center;
+    font-size: 14px;
+    padding: 6px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.day:hover {
+    background: #f2f2f2;
+    color: #333;
+}
+
+.day.selected {
+    background: #5866e0;
+    color: #fff;
+}
+
+.day.disabled {
+    color: #ccc;
+    pointer-events: none;
+}
+
+/* Гибкие даты */
+.flexible-view {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.flex-season, .flex-month {
+    display: inline-block;
+    background: #fff;
+    border: 2px solid #ccc;
+    color: #555;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.flex-season:hover,
+.flex-month:hover {
+    border-color: #999;
+}
+
+.months-list {
+    max-height: 100px; /* Пример ограниченной высоты */
+    overflow-y: auto;  /* Скролл */
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+/* Кнопки внизу */
+.time-arrival-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+.btn-cancel,
+.btn-done {
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-cancel:hover {
+    color: #999;
+}
+
+.btn-done {
+    color: #fff;
+    background: #5866e0;
+    border-radius: 8px;
+    padding: 6px 12px;
+}
+
+.btn-done:hover {
+    background: #4856d0;
+}

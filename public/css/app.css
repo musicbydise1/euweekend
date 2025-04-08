@@ -1,0 +1,1165 @@
+/* ===== Сброс базовых стилей (по желанию) ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    background: #F0F0F0;
+
+}
+
+/* ===== Контейнер ===== */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.container-card {
+    width: 90%;
+    max-width: 1340px;
+    margin: 0 auto;
+}
+
+/* ===== Верхняя плашка ===== */
+.top-bar {
+    background: #262323;
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    padding: 15px 0;
+}
+
+.top-bar-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== Навигация ===== */
+.header-nav {
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    z-index: 999;
+}
+
+.nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    z-index: 999;
+}
+
+.logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+
+.menu {
+    z-index: 999;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 42px;
+    margin-left: 5rem;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19px;
+    transition: color 0.2s ease;
+}
+
+.menu a:hover {
+    color: #fb5b0d;
+}
+
+/* Правый блок (телефон + язык) */
+.nav-extra {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Расстояние между телефоном и языком */
+    z-index: 999;
+}
+
+/* Телефон */
+.phone-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.phone-icon {
+    width: 16px; /* Задайте нужный размер иконки */
+    height: 16px;
+}
+.phone-number {
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19.5px;
+
+}
+
+/* Языковое меню */
+.language-dropdown {
+    position: relative;
+    display: inline-block; /* или flex, если нужно */
+}
+
+.lang-toggle {
+    background: none;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.lang-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    list-style: none;
+    margin: 0;
+    padding: 8px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    min-width: 80px;
+    z-index: 999;
+    display: none; /* скрыто по умолчанию */
+}
+
+/* Показываем меню, когда родитель имеет класс .open */
+.language-dropdown.open .lang-menu {
+    display: block;
+}
+
+.lang-menu li {
+    padding: 4px 16px;
+}
+
+.lang-menu li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    transition: background 0.2s;
+}
+
+.lang-menu li:hover {
+    background: #f0f0f0;
+}
+
+/* ===== Hero-секция ===== */
+.hero {
+    position: relative;
+    min-height: 810px;
+    display: flex;
+    top: -70px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    z-index: 0;
+}
+.hero-home {
+    background: url("../images/hero-bg.gif") center center/cover no-repeat;
+}
+
+.hero-about {
+    background: url("../images/hero-about-bg.gif") center center/cover no-repeat;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(93.11% 258.89% at 79.16% 6.51%, #575EFF 0%, #FF864B 99.99%, #FF8144 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+
+}
+
+.hero-home::before,
+.hero-about::before {
+    opacity: 0.8;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 20px;
+    top: -45px;
+}
+
+.hero-content h1 {
+    font-size: 56px;
+    margin-bottom: 20px;
+    font-weight: 800;
+    line-height: 70px;
+    letter-spacing: -2%;
+    text-align: center;
+
+}
+
+.hero-content p {
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 26px;
+    text-align: center;
+    width: 75%;
+    margin: 0 auto;
+
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+    margin-top: 56px;
+}
+
+.btn-primary,
+.btn-outline {
+    display: inline-block;
+    padding: 15px 28px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    line-height: 21px;
+    font-size: 18px;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* Кнопка Primary */
+.btn-primary {
+    border: 2px solid #262323;
+    background: #262323;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    border-color: #fb5b0d;
+    background: #fb5b0d;
+}
+
+/* Кнопка Outline */
+.btn-outline {
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+.btn-outline:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* ===== Секция "Custom Programms" ===== */
+.section-programs {
+    padding: 60px 20px;
+}
+
+.section-title {
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 36.57px;
+    color: #FB5B0D;
+    margin-bottom: 28px;
+}
+
+.section-title p {
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 28px;
+    color: #262323;
+    width: 41%;
+}
+
+.programs-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Карточка: фиксируем ширину/высоту, включаем позиционирование */
+.program-card {
+    position: relative;        /* Чтобы можно было позиционировать элементы внутри */
+    width: 378px;             /* Как и раньше */
+    height: 500px;            /* Задаём фиксированную высоту, иначе карточка будет «прыгать» */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 10px 10px 36px 0px #0000001A;
+    background: #f8f8f8;
+    margin-top: 60px;         /* При необходимости (или уберите, если не нужно) */
+}
+
+/* Изображение: растягиваем на ширину карточки и задаём изначальную высоту */
+.program-card-img {
+    position: absolute;       /* Чтобы можно было «раскрывать» поверх контента */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 350px;            /* Изначальная высота под ваши нужды */
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    transition: all 0.4s ease; /* Анимация «раскрытия» */
+    z-index: 1;
+}
+
+/* Кнопка Read More: изначально скрыта */
+.read-more-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    color: #FB5B0D;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    display: none;            /* Скрыта по умолчанию */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 2;
+    transition: 0.3s ease-in-out;
+}
+
+/* Контент карточки (заголовок, дата) */
+.program-card-content {
+    position: absolute;       /* Чтобы «уехать» за картинку на ховере */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 20px 36px 32px 36px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transition: opacity 0.4s ease;
+    z-index: 2;               /* Выше картинки (по умолчанию) */
+}
+
+/* Заголовок, дата и т.д. */
+.program-card-content h3 {
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 10px;
+}
+
+.card-date {
+    font-weight: 500;
+    font-size: 14px;
+    color: #0064d2;
+}
+
+/* === ЭФФЕКТ ПРИ НАВЕДЕНИИ === */
+
+/* При ховере на .program-card... */
+.program-card:hover .program-card-img {
+    height: 100%;             /* Раскрываем картинку на всю высоту карточки (500px) */
+    object-fit: cover;
+}
+
+/* Скрываем контент (заголовок, дату), чтобы «ушло» под картинку */
+.program-card:hover .program-card-content {
+    opacity: 0;               /* Или display: none, если не хотите анимировать */
+}
+
+/* Отображаем кнопку Read More по центру */
+.program-card:hover .read-more-btn {
+    display: block;
+}
+
+
+.section-programs-btn {
+    margin-top: 58px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.section-programs-btn a {
+    padding: 18px 28px;
+    background: #FB5B0D;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: .3s ease-in-out;
+}
+
+.section-programs-btn a:hover {
+    background: #262323;
+}
+
+    /* ===== Секция "about Us?" (блоки / списки) ===== */
+
+.about-section {
+    margin: 100px 0;
+}
+.about-card {
+    background: #fff; /* или нужный цвет */
+    padding: 80px 37px;
+    border-radius: 40px; /* Если нужен скруглённый угол */
+}
+
+.about-header {
+    margin-bottom: 60px;
+}
+
+.about-header h2 {
+    font-size: 30px;
+    line-height: 34px;
+    font-weight: 700;
+    color: #FB5B0D; /* Заголовок оранжевым */
+    margin-bottom: 28px;
+}
+
+.about-header p {
+    font-size: 17px;
+    line-height: 28px;
+    color: #262323;
+    max-width: 487px; /* Ширина текста, чтобы он не растягивался */
+}
+
+/* Блок с элементами */
+.about-items {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 100px;
+    justify-items: center; /* Центровка по горизонтали */
+}
+
+/* Каждый элемент (иконка + текст) */
+.about-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* Иконка */
+.about-icon img {
+    margin-bottom: 10px;
+}
+
+.icon-experience {
+    font-weight: 700;
+    font-size: 78.46px;
+    line-height: 109.85px;
+    letter-spacing: 1%;
+    color: #575EFF;
+}
+
+/* Текстовое описание */
+.about-text h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #262323;
+    margin-bottom: 8px;
+    margin-left: 54px;
+}
+
+.about-text p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.4;
+}
+
+.test-section {
+    margin-bottom: 100px;
+}
+/* Общий контейнер секции */
+.test-section-card {
+    background: #3F52E3;       /* Ярко-синий/фиолетовый цвет фона */
+    border-radius: 10px;      /* Скруглённые углы */
+    padding: 97px 68px;          /* Вертикальные отступы */
+    margin: 40px 0;           /* Отступы сверху и снизу секции */
+}
+
+/* Внутренняя обёртка для выравнивания */
+.test-section-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Иконка + текст слева, кнопка справа */
+    background: #3F52E3;       /* Ярко-синий/фиолетовый цвет фона */
+    border-radius: 20px;      /* Скруглённые углы */
+    padding: 97px 68px;             /* Вертикальные отступы */
+    margin: 40px 0;
+}
+
+/* Блок с иконкой и текстом */
+.test-info {
+    display: flex;
+    align-items: center;
+    gap: 55px; /* Расстояние между иконкой и текстом */
+}
+
+
+
+/* Текст в левой части */
+.test-text {
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 48px;
+    color: #fff;
+}
+
+/* Кнопка "Пройти тест" */
+.test-btn {
+    background: #FB5B0D;      /* Оранжевый цвет */
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+/* Эффект при наведении */
+.test-btn:hover {
+    background: #d54a0b; /* Темнее оранжевый при ховере */
+}
+
+    /* ===== Секция "Why Us?" (блоки / списки) ===== */
+.section-why {
+    padding: 60px 20px;
+    background: #f9f9f9;
+}
+
+.slider-section {
+    margin-bottom: 100px;
+}
+
+.slider-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Обёртка Swiper (необязательно, но для красоты) */
+.swiper {
+    width: 100%;
+    /* Можно задать фиксированную высоту или оставить auto */
+}
+
+/* Сами слайды */
+.swiper-slide {
+    display: flex; /* Чтобы картинка центрировалась */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Изображения */
+.swiper-slide img {
+    width: 100%;                /* Примерная ширина, меняйте по вкусу */
+    height: 460px;               /* Примерная высота */
+    object-fit: cover;           /* Чтобы картинка не искажалась */
+    border-radius: 12px;         /* Скруглённые углы */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.swiper-slide img:hover {
+    transform: scale(1.05);
+}
+
+.swiper-pagination {
+    top: 10px;
+}
+
+/* Стили пагинации (точек) можно кастомизировать через CSS-переменные Swiper */
+.swiper-pagination-bullet {
+    background: #999;            /* Цвет точек */
+    opacity: 1;                  /* По умолчанию у Swiper может быть 0.2 */
+}
+
+.swiper-pagination-bullet-active {
+    background: #333;            /* Цвет активной точки */
+}
+
+/* Секция */
+/* styles.css (или в <style> секции) */
+
+/* Секция с градиентным фоном */
+.cta-section {
+    /* Пример градиента (слева направо):
+       Можно заменить на свои цвета */
+    background: radial-gradient(113.24% 372.27% at 88.27% -8.06%, #575EFF 0%, #FF864B 99.99%, #FF8144 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    padding: 60px 100px;       /* Отступы сверху и снизу */
+    color: #fff;           /* Текст - белый */
+    border-radius: 20px;
+}
+
+/* Контейнер для центрирования содержимого */
+.container {
+    max-width: 1200px;     /* Ширина */
+    margin: 0 auto;        /* Центровка */
+    padding: 0 15px;       /* Внутренние отступы по бокам */
+}
+
+/* Внутренний блок CTA */
+.cta-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;             /* Пробел между текстом и кнопками */
+}
+
+/* Заголовок и описание */
+.cta-text h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+.cta-text p {
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+/* Обёртка для кнопок */
+.cta-buttons {
+    display: flex;
+    gap: 20px;             /* Расстояние между кнопками */
+}
+
+/* Общий класс для кнопок */
+.cta-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+/* Чёрная кнопка */
+.cta-btn-black {
+    background-color: #000;
+    color: #fff;
+}
+.cta-btn-black:hover {
+    background-color: #333;
+}
+
+/* Кнопка с обводкой */
+.cta-btn-outline {
+    border: 2px solid #fff;
+    color: #fff;
+}
+.cta-btn-outline:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Адаптив: на мобильных всё в колонку */
+@media (max-width: 768px) {
+    .cta-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+    .cta-buttons {
+        justify-content: center;
+    }
+}
+
+/* Обёртка секции */
+.why-choose-section {
+    background: #fff;            /* Белый фон */
+    border-radius: 10px;         /* Скруглённые углы */
+    padding: 60px 20px;          /* Внутренние отступы */
+    margin: 40px 0;              /* Отступы сверху и снизу */
+}
+
+/* Внутренний контейнер */
+.why-choose-inner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Позволяет колонкам перестраиваться на узких экранах */
+    gap: 40px;       /* Расстояние между колонками */
+}
+
+/* Левая колонка */
+.why-left {
+    flex: 1 1 300px; /* Ширина, чтобы колонка не сжималась слишком сильно */
+    max-width: 600px;
+}
+
+.why-left h2 {
+    font-size: 28px;
+    line-height: 1.3;
+    font-weight: 600;
+    color: #FB5B0D; /* Оранжевый цвет заголовка */
+    margin-bottom: 20px;
+}
+
+.why-left p {
+    font-size: 17px;
+    line-height: 28px;
+    color: #262323;
+}
+
+/* Правая колонка со статистикой */
+.why-right {
+    display: flex;
+    align-items: center;
+    gap: 40px;      /* Расстояние между блоками статистики */
+    flex: 1 1 300px;
+    justify-content: center; /* Центрируем, если нужно */
+}
+
+/* Каждый блок статистики */
+.stats-item {
+    text-align: center;
+}
+
+.stats-item h3 {
+    font-size: 40px;
+    color: #0064D2; /* Синий цвет для цифр (по примеру) */
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.stats-item p {
+    font-size: 16px;
+    color: #555;
+    font-weight: 400;
+}
+
+/* Адаптивность (опционально) */
+@media (max-width: 768px) {
+    .why-right {
+        gap: 20px;
+    }
+    .stats-item h3 {
+        font-size: 32px;
+    }
+}
+
+
+/* Секция */
+.reviews-section {
+    margin: 60px 0; /* Отступы сверху и снизу */
+    padding: 20px 0;
+}
+
+/* Внутренний контейнер */
+.reviews-inner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px; /* Расстояние между левой колонкой и слайдером */
+    flex-wrap: wrap; /* Позволяет перестраиваться на узких экранах */
+}
+
+/* Левая часть (заголовок, абзац) */
+.reviews-left {
+    flex: 1 1 300px;
+    max-width: 400px;
+}
+
+.reviews-left h2 {
+    font-size: 24px;
+    color: #FB5B0D; /* Оранжевый заголовок */
+    margin-bottom: 16px;
+}
+
+.reviews-left p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* Правая часть (слайдер) */
+.reviews-right {
+    flex: 2 1 400px; /* Можно изменить пропорцию колонок */
+}
+
+/* Карточка отзыва */
+.review-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Верхняя часть карточки (аватар + имя) */
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.review-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.review-name {
+    font-weight: 600;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Основной контент отзыва */
+.review-content h3 {
+    font-size: 18px;
+    color: #FB5B0D; /* Выделяем заголовок отзыва оранжевым */
+    margin-bottom: 8px;
+}
+
+.review-content p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+/* Ссылка на видео (Watch Video) */
+.review-video-link {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #FB5B0D;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.review-video-link:hover {
+    color: #d0490b; /* Темнее оранжевый при ховере */
+}
+
+/* Пагинация (точки) Swiper */
+.swiper-pagination-bullet {
+    background: #ccc;
+    opacity: 1; /* По умолчанию может быть 0.2 */
+}
+
+.swiper-pagination-bullet-active {
+    background: #FB5B0D; /* Оранжевая активная точка */
+}
+
+
+/* ===== Секция "Contact Form" ===== */
+/* Обёртка секции */
+.contact-section {
+    padding: 40px 0;
+}
+
+/* Контейнер, в котором две колонки */
+.contact-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Чтобы на мобильных колонки шли друг под другом */
+    gap: 40px;
+    align-items: stretch; /* Выравниваем блоки по высоте, если нужно */
+}
+
+/* Левая часть (градиентный блок) */
+.contact-left {
+    flex: 1 1 300px;
+    max-width: 400px; /* Ширина, если нужно ограничить */
+    background: linear-gradient(135deg, #8A56D1, #D67ECC);
+    border-radius: 10px;
+    color: #fff;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрируем контент по вертикали */
+}
+
+.contact-left h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.contact-left p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Список с часами работы */
+.business-hours {
+    list-style: none;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.business-hours li {
+    margin-bottom: 8px;
+}
+
+/* Правая часть (белая карточка) */
+.contact-right {
+    flex: 1 1 400px;
+    display: flex; /* Чтобы можно было выровнять форму по центру */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Карточка с формой */
+.contact-form-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 450px;
+    box-sizing: border-box;
+}
+
+.contact-form-card h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Группы полей формы */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #8A56D1; /* Цвет фокуса (совпадает с градиентом) */
+}
+
+/* Блок recaptcha */
+.recaptcha-info {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.recaptcha-info a {
+    color: #8A56D1;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Кнопка отправки */
+.btn-submit {
+    background: #FB5B0D; /* Оранжевый цвет */
+    color: #fff;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-submit:hover {
+    background: #d54a0b; /* Темнее при ховере */
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        flex-direction: column;
+    }
+    .contact-left,
+    .contact-right {
+        max-width: 100%;
+    }
+}
+
+/* ===== Футер ===== */
+/* Общие стили футера */
+.footer {
+    background: #1A1A1A; /* Тёмный фон */
+    color: #ccc;        /* Светлый текст */
+    font-size: 14px;
+}
+
+/* Верхняя часть футера */
+.footer-top {
+    display: flex;
+    flex-wrap: wrap; /* Чтобы на узких экранах колонки перестраивались */
+    gap: 40px;
+    padding: 40px 0;
+}
+
+/* Колонки футера */
+.footer-col {
+    flex: 1 1 200px;
+}
+
+/* Левая колонка (логотип + контакты) */
+.footer-col-left .footer-logo img {
+    max-width: 120px; /* Ширина логотипа, подберите под свой дизайн */
+    margin-bottom: 20px;
+}
+
+.footer-contacts {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-contacts li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    color: #fff; /* Белый текст для контактов */
+}
+
+.footer-contacts img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Средняя колонка (текст, форма) */
+.footer-col-middle h3 {
+    font-size: 16px;
+    color: #FB5B0D; /* Оранжевый заголовок */
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.footer-note {
+    color: #ccc;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.subscribe-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.subscribe-form input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+}
+
+.subscribe-form button {
+    background: #FB5B0D;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 14px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.subscribe-form button:hover {
+    background: #d54a0b; /* Темнее оранжевый */
+}
+
+.footer-subscribe {
+    color: #fff;
+    font-weight: 500;
+}
+
+/* Правая колонка (меню) */
+.footer-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-menu li {
+    margin-bottom: 8px;
+}
+
+.footer-menu a {
+    text-decoration: none;
+    color: #ccc;
+    transition: color 0.2s;
+}
+
+.footer-menu a:hover {
+    color: #fff;
+}
+
+/* Нижняя часть футера */
+.footer-bottom {
+    background: #111; /* Более тёмная полоса */
+    padding: 15px 0;
+}
+
+.footer-bottom-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.scroll-up-btn img {
+    width: 32px;
+    height: 32px;
+    transition: opacity 0.3s;
+}
+
+.scroll-up-btn:hover {
+    opacity: 0.8;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;
+    }
+    .footer-bottom-inner {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
