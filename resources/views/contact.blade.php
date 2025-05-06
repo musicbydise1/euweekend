@@ -85,60 +85,69 @@
             <h2 class="departments-title">Наши Отделения</h2>
 
             <div class="departments-grid">
-                <!-- Левая колонка -->
+                <!-- Карточка: Чехия -->
                 <div class="department-card">
                     <div class="department-header">
                         <span>Чехия</span>
-                        <span class="arrow">▼</span>
+                        <!-- Пустой span для стрелки -->
+                        <span class="arrow"></span>
                     </div>
-                    <!-- Если скрыто, уберите/закомментируйте этот блок -->
                     <div class="department-content">
-                        <!-- Контент, если нужно раскрывать -->
                         <p>Email: czech@company.com</p>
                         <p>Нажмите на стрелку, чтобы скрыть</p>
                     </div>
                 </div>
 
+                <!-- Карточка: Украина -->
                 <div class="department-card">
                     <div class="department-header">
                         <span>Украина</span>
-                        <span class="arrow">▼</span>
+                        <span class="arrow"></span>
                     </div>
-                    <!-- Скрытый контент (по умолчанию пусто) -->
+                    <div class="department-content">
+                        <p>Здесь может быть ваша информация</p>
+                    </div>
                 </div>
 
-                <!-- Пример "развёрнутой" карточки: Грузия -->
-                <div class="department-card expanded">
+                <!-- Карточка: Грузия (пример сразу открытой карточки, класс `expanded` можно убрать) -->
+                <div class="department-card">
                     <div class="department-header">
                         <span>Грузия</span>
-                        <span class="arrow">▼</span>
+                        <span class="arrow"></span>
                     </div>
                     <div class="department-content">
                         <p>Email: kunduz@esdubai.com</p>
-                        <p>Напишите нам и мы с Вами обязательно свяжемся!</p>
+                        <p>Напишите нам, и мы с Вами обязательно свяжемся!</p>
                     </div>
                 </div>
 
-                <!-- Правая колонка -->
+                <!-- Карточка: Россия -->
                 <div class="department-card">
                     <div class="department-header">
                         <span>Россия</span>
-                        <span class="arrow">▼</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="department-content">
+                        <p>Здесь может быть ваша информация</p>
                     </div>
                 </div>
 
+                <!-- Карточка: Казахстан -->
                 <div class="department-card">
                     <div class="department-header">
                         <span>Казахстан</span>
-                        <span class="arrow">▼</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="department-content">
+                        <p>Здесь может быть ваша информация</p>
                     </div>
                 </div>
 
-                <!-- Пример "развёрнутой" карточки: Дубай -->
-                <div class="department-card expanded">
+                <!-- Карточка: Дубай (пример сразу открытой карточки) -->
+                <div class="department-card">
                     <div class="department-header">
                         <span>Дубай</span>
-                        <span class="arrow">▼</span>
+                        <span class="arrow"></span>
                     </div>
                     <div class="department-content">
                         <p>Kunduz Kadirova</p>
@@ -147,13 +156,23 @@
                         <p>Email: kunduz@esdubai.com</p>
                     </div>
                 </div>
-            </div>
-        </div>
+
+            </div> <!-- /departments-grid -->
+        </div> <!-- /container -->
     </section>
 
     <section class="map-section">
-        <div class="container map-inner">
-            <!-- Левая колонка с часами и адресами -->
+        <div class="map-inner">
+            <!-- Карта (iframe) во весь блок -->
+            <iframe
+                class="map-iframe"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2657.644358575376!2d14.426342415454545!3d50.07806237942664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b94ec3c1e0e5f%3A0x18bbcbfb32b655b5!2s%C5%BDitn%C3%A1%2049%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Czechia!5e0!3m2!1sen!2s!4v1692104247709!5m2!1sen!2s"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+
+            <!-- Блок с информацией, поверх карты -->
             <div class="map-info-box">
                 <h3>Opening hours:</h3>
                 <p>
@@ -167,16 +186,23 @@
                 <h4>Dubai Office:</h4>
                 <p>Žitná 49, 110 00 Nové Město</p>
             </div>
-
-            <!-- Правая колонка: карта -->
-            <div class="map-embed">
-                <!-- Пример Iframe из Google Maps Embed -->
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2657.644358575376!2d14.426342415454545!3d50.07806237942664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b94ec3c1e0e5f%3A0x18bbcbfb32b655b5!2s%C5%BDitn%C3%A1%2049%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Czechia!5e0!3m2!1sen!2s!4v1692104247709!5m2!1sen!2s"
-                    width="100%" height="450" style="border:0;" allowfullscreen=""
-                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                ></iframe>
-            </div>
         </div>
     </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Находим все заголовки карточек
+            const headers = document.querySelectorAll('.department-header');
+
+            headers.forEach(header => {
+                header.addEventListener('click', () => {
+                    // Родительский элемент карточки
+                    const card = header.parentElement;
+
+                    // Переключаем класс "expanded" для текущего блока
+                    card.classList.toggle('expanded');
+                });
+            });
+        });
+    </script>
 @endsection

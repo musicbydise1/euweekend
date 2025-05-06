@@ -6,10 +6,69 @@
             <h1>Ваши отзывы</h1>
             <h2>Поделитесь своими впечатлениями о програмах EU Weekend!</h2>
             <div class="hero-buttons">
-                <a href="#application" class="btn-primary">Оставить отзыв</a>
+                <!-- Кнопка, по клику на которую откроется модальное окно -->
+                <a href="javascript:void(0);" class="btn-primary open-modal-btn">
+                    Оставить отзыв
+                </a>
             </div>
         </div>
     </section>
+
+    <!-- Модальное окно (изначально скрыто) -->
+    <div class="review-modal-overlay" id="reviewModalOverlay">
+        <div class="review-modal">
+            <!-- Кнопка закрытия (иконка или текст) -->
+            <button class="close-modal-btn" aria-label="Close modal">&times;</button>
+
+            <div class="review-modal-inner">
+                <!-- Левая часть с текстом и фоном -->
+                <div class="review-modal-left">
+                    <h3>Поделитесь<br>Вашими<br>Впечатлениями!</h3>
+                </div>
+
+                <!-- Правая часть с формой -->
+                <div class="review-modal-right">
+                    <!-- Зона для прикрепления фото -->
+                    <div class="dotted-box dotted-box-photo">
+                        <div class="plus-icon">+</div>
+                        <span>Прикрепить фото</span>
+                        <input type="file" accept="image/*" class="hidden-input" />
+                    </div>
+
+                    <!-- Поля ввода: Имя, Почта, Ваш возраст -->
+                    <div class="form-row">
+                        <input type="text" placeholder="Имя" />
+                    </div>
+                    <div class="form-row">
+                        <input type="email" placeholder="Почта" />
+                    </div>
+                    <div class="form-row">
+                        <input type="text" placeholder="Ваш возраст" />
+                    </div>
+
+                    <!-- Текстовая область отзыва -->
+                    <div class="form-row">
+                        <textarea placeholder="Ваш отзыв"></textarea>
+                    </div>
+
+                    <!-- Прикрепить видео -->
+                    <div class="dotted-box dotted-box-video">
+                        <div class="plus-icon">+</div>
+                        <span>Прикрепить видео</span>
+                        <input type="file" accept="video/*" class="hidden-input" />
+                    </div>
+
+                    <!-- Кнопка отправки отзыва -->
+                    <div class="submit-row">
+                        <button type="button" class="btn-submit">
+                            Оставить отзыв
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <section class="testimonials-section">
         <div class="testimonials-inner">
@@ -93,8 +152,8 @@
         </div>
     </section>
 
-    <section class="stats-section">
-        <div class="container stats-inner">
+    <section class="container">
+        <div class="stats-inner">
             <div class="stats-number">
                 <h2>3500+</h2>
                 <p>Участников программ</p>
@@ -116,6 +175,33 @@
             <a href="#" class="cta-gradient-btn">Оставить заявку</a>
         </div>
     </section>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const openModalBtn = document.querySelector(".open-modal-btn");
+            const closeModalBtn = document.querySelector(".close-modal-btn");
+            const reviewModalOverlay = document.getElementById("reviewModalOverlay");
+
+            // Открыть модалку
+            openModalBtn.addEventListener("click", function() {
+                reviewModalOverlay.classList.add("show");
+            });
+
+            // Закрыть модалку
+            closeModalBtn.addEventListener("click", function() {
+                reviewModalOverlay.classList.remove("show");
+            });
+
+            // Закрыть при клике на подложку
+            reviewModalOverlay.addEventListener("click", function(e) {
+                if (e.target === reviewModalOverlay) {
+                    reviewModalOverlay.classList.remove("show");
+                }
+            });
+        });
+    </script>
+
 
 
 @endsection

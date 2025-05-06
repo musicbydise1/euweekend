@@ -1,0 +1,250 @@
+/* ===== Верхняя плашка ===== */
+.top-bar {
+    background: #262323;
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    padding: 15px 0;
+}
+.top-bar-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Стили навигации по умолчанию */
+.header-nav {
+    background: transparent;
+    box-shadow: none;
+    width: 100%;
+    transition: background 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
+    /* Позиционирование по умолчанию – статическое (не fixed) */
+    position: relative;
+    padding: 15px;
+
+}
+.header-spacer {
+    height: 0;
+    transition: height 0.3s ease;
+}
+
+/* Когда шапка фиксируется, spacer становится равен её высоте */
+.header-nav.fixed-header ~ .header-spacer {
+    height: 80px; /* ← здесь точная высота .header-nav */
+}
+
+
+/* Класс, который будет добавляться при прокрутке */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff; /* Фон можно изменить на нужный */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 999;
+    border-bottom-right-radius: 90px;
+    border-bottom-left-radius: 90px;
+}
+
+.fixed-header .menu a {
+    color: #000;
+}
+
+.fixed-header .phone-number,
+.fixed-header .lang-toggle {
+    color: #575EFF;
+}
+
+
+.logo .fixed-logo,
+.phone-info .fixed-logo {
+    display: none;
+}
+
+.header-nav.fixed-header .logo .default-logo,
+.header-nav.fixed-header .phone-info .default-logo {
+    display: none;
+}
+.header-nav.fixed-header .logo .fixed-logo,
+.header-nav.fixed-header .phone-info .fixed-logo {
+    display: block;
+}
+.header-nav.fixed-header .menu li.active::before {
+    background-color: #575EFF;
+}
+/* Отступ для основного контента, чтобы он не скрывался под фиксированной навигацией */
+
+
+.nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0 !important;
+}
+
+.logo {
+    z-index: 999;
+}
+
+.logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+
+.menu {
+    z-index: 999;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 42px;
+    margin-left: 5rem;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19px;
+    transition: color 0.2s ease;
+}
+
+.detail .menu a {
+    color: #000;
+}
+
+.menu a:hover {
+    color: #fb5b0d;
+}
+
+.menu li.active::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #fff; /* Цвет кружка */
+    border-radius: 50%;
+    margin-right: 8px; /* Отступ между кружком и текстом */
+    vertical-align: middle;
+}
+
+
+/* Правый блок (телефон + язык) */
+.nav-extra {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Расстояние между телефоном и языком */
+    z-index: 999;
+}
+
+/* Телефон */
+.phone-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.phone-icon {
+    width: 16px; /* Задайте нужный размер иконки */
+    height: 16px;
+}
+.phone-number {
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19.5px;
+
+}
+
+.detail .phone-number {
+    color: #575EFF;
+}
+
+/* Языковое меню */
+.language-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.lang-toggle {
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s ease;
+    font-size: 16px;
+}
+
+.detail .lang-toggle {
+    color: #575EFF;
+}
+.detail .lang-toggle:hover {
+    background: rgba(87, 94, 255, 0.3);
+}
+
+.lang-toggle:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.fixed-header .lang-toggle:hover {
+    background: rgba(87, 94, 255, 0.3);
+}
+
+.arrow-down {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.language-dropdown.open .arrow-down {
+    transform: rotate(180deg);
+}
+
+.lang-menu {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    background: #fff;
+    border-radius: 4px;
+    list-style: none;
+    margin: 0;
+    padding: 8px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 120px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.language-dropdown.open .lang-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.lang-menu li {
+    padding: 8px 16px;
+}
+
+.lang-menu li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    display: block;
+    transition: background 0.3s ease;
+}
+
+.lang-menu li a:hover {
+    background: #f7f7f7;
+}

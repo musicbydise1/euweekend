@@ -14,164 +14,26 @@ body {
 
 /* ===== Контейнер ===== */
 .container {
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
 }
 .container-card {
-    width: 90%;
+    width: 100%;
     max-width: 1340px;
     margin: 0 auto;
 }
 
-/* ===== Верхняя плашка ===== */
-.top-bar {
-    background: #262323;
-    font-size: 14px;
-    font-weight: 400;
-    color: #fff;
-    padding: 15px 0;
-}
 
-.top-bar-inner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-/* ===== Навигация ===== */
-.header-nav {
-    background: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    z-index: 999;
-}
 
-.nav-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-}
-
-.logo {
-    z-index: 999;
-}
-
-.logo a {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    text-decoration: none;
-}
-
-.menu {
-    z-index: 999;
-}
-
-.menu ul {
-    list-style: none;
-    display: flex;
-    gap: 42px;
-    margin-left: 5rem;
-}
-
-.menu a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 19px;
-    transition: color 0.2s ease;
-}
-
-.menu a:hover {
-    color: #fb5b0d;
-}
-
-/* Правый блок (телефон + язык) */
-.nav-extra {
-    display: flex;
-    align-items: center;
-    gap: 30px; /* Расстояние между телефоном и языком */
-    z-index: 999;
-}
-
-/* Телефон */
-.phone-info {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-.phone-icon {
-    width: 16px; /* Задайте нужный размер иконки */
-    height: 16px;
-}
-.phone-number {
-    color: #fff;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 19.5px;
-
-}
-
-/* Языковое меню */
-.language-dropdown {
-    position: relative;
-    display: inline-block; /* или flex, если нужно */
-}
-
-.lang-toggle {
-    background: none;
-    border: none;
-    font: inherit;
-    cursor: pointer;
-    color: #fff;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.lang-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #fff;
-    list-style: none;
-    margin: 0;
-    padding: 8px 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-    min-width: 80px;
-    z-index: 999;
-    display: none; /* скрыто по умолчанию */
-}
-
-/* Показываем меню, когда родитель имеет класс .open */
-.language-dropdown.open .lang-menu {
-    display: block;
-}
-
-.lang-menu li {
-    padding: 4px 16px;
-}
-
-.lang-menu li a {
-    text-decoration: none;
-    color: #333;
-    display: block;
-    transition: background 0.2s;
-}
-
-.lang-menu li:hover {
-    background: #f0f0f0;
-}
 
 /* ===== Hero-секция ===== */
 .hero {
     position: relative;
-    min-height: 810px;
+    height: 1100px;
     display: flex;
-    top: -70px;
+    top: -96px;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -204,7 +66,7 @@ body {
     z-index: 1;
     max-width: 800px;
     padding: 20px;
-    top: -45px;
+    top: -85px;
 }
 
 .hero-content h1 {
@@ -271,7 +133,7 @@ body {
     color: #000;
 }
 
-/* ===== Секция "Custom Programms" ===== */
+/* ===== Секция "Custom Programs" ===== */
 .section-programs {
     padding: 60px 20px;
 }
@@ -307,8 +169,7 @@ body {
     position: relative;        /* Чтобы можно было позиционировать элементы внутри */
     width: 378px;             /* Как и раньше */
     height: 500px;            /* Задаём фиксированную высоту, иначе карточка будет «прыгать» */
-    border-radius: 20px;
-    overflow: hidden;
+    border-radius: 30px;
     box-shadow: 10px 10px 36px 0px #0000001A;
     background: #f8f8f8;
     margin-top: 60px;         /* При необходимости (или уберите, если не нужно) */
@@ -321,11 +182,16 @@ body {
     left: 0;
     width: 100%;
     height: 350px;            /* Изначальная высота под ваши нужды */
-    object-fit: cover;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
     transition: all 0.4s ease; /* Анимация «раскрытия» */
-    z-index: 1;
+    z-index: 0;
+}
+.program-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
 }
 
 /* Кнопка Read More: изначально скрыта */
@@ -335,27 +201,32 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     background: #fff;
-    color: #FB5B0D;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
+    padding: 18px 24px;
+    border-radius: 10px;
     display: none;            /* Скрыта по умолчанию */
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    z-index: 2;
+    z-index: 999;
     transition: 0.3s ease-in-out;
+    opacity: 1;
+}
+
+.read-more-btn a{
+    color: #FB5B0D;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 18px;
 }
 
 /* Контент карточки (заголовок, дата) */
 .program-card-content {
     position: absolute;       /* Чтобы «уехать» за картинку на ховере */
-    bottom: 0;
+    bottom: 5%;
     left: 0;
     right: 0;
     background: #fff;
     padding: 20px 36px 32px 36px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
     transition: opacity 0.4s ease;
     z-index: 2;               /* Выше картинки (по умолчанию) */
 }
@@ -381,16 +252,22 @@ body {
 .program-card:hover .program-card-img {
     height: 100%;             /* Раскрываем картинку на всю высоту карточки (500px) */
     object-fit: cover;
+    z-index: 0;
 }
 
 /* Скрываем контент (заголовок, дату), чтобы «ушло» под картинку */
-.program-card:hover .program-card-content {
+.program-card:hover .program-card-content,
+.program-card:hover .program-badge {
     opacity: 0;               /* Или display: none, если не хотите анимировать */
+    transition: .3s;
 }
 
 /* Отображаем кнопку Read More по центру */
 .program-card:hover .read-more-btn {
     display: block;
+    opacity: 1;
+    z-index: 100;
+    padding: 18px 24px;
 }
 
 
@@ -565,6 +442,7 @@ body {
 .swiper {
     width: 100%;
     /* Можно задать фиксированную высоту или оставить auto */
+    padding-bottom: 50px !important;
 }
 
 /* Сами слайды */
@@ -589,7 +467,7 @@ body {
 }
 
 .swiper-pagination {
-    top: 10px;
+    bottom: 0 !important;
 }
 
 /* Стили пагинации (точек) можно кастомизировать через CSS-переменные Swiper */
@@ -632,34 +510,45 @@ body {
 
 /* Заголовок и описание */
 .cta-text h2 {
-    font-size: 2rem;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 48px;
     margin-bottom: 1rem;
 }
 .cta-text p {
-    font-size: 1.1rem;
-    line-height: 1.4;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 28px;
 }
 
 /* Обёртка для кнопок */
 .cta-buttons {
-    display: flex;
-    gap: 20px;             /* Расстояние между кнопками */
+
 }
 
 /* Общий класс для кнопок */
 .cta-btn {
     display: inline-block;
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
+    padding: 18px 28px;
+    border-radius: 10px;
     text-decoration: none;
     font-weight: 600;
     transition: 0.3s;
+    width: 244px;
+    float: right;
+}
+
+.cta-btn a {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 100%;
 }
 
 /* Чёрная кнопка */
 .cta-btn-black {
     background-color: #000;
     color: #fff;
+    margin-bottom: 35px;
 }
 .cta-btn-black:hover {
     background-color: #333;
@@ -689,32 +578,28 @@ body {
 /* Обёртка секции */
 .why-choose-section {
     background: #fff;            /* Белый фон */
-    border-radius: 10px;         /* Скруглённые углы */
-    padding: 60px 20px;          /* Внутренние отступы */
-    margin: 40px 0;              /* Отступы сверху и снизу */
+    border-radius: 30px;         /* Скруглённые углы */
+    padding: 70px;          /* Внутренние отступы */
+    margin: 100px 50px;              /* Отступы сверху и снизу */
 }
 
 /* Внутренний контейнер */
 .why-choose-inner {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-wrap: wrap; /* Позволяет колонкам перестраиваться на узких экранах */
-    gap: 40px;       /* Расстояние между колонками */
+
 }
 
 /* Левая колонка */
 .why-left {
-    flex: 1 1 300px; /* Ширина, чтобы колонка не сжималась слишком сильно */
     max-width: 600px;
+    margin-bottom: 80px;
 }
 
 .why-left h2 {
-    font-size: 28px;
-    line-height: 1.3;
+    font-size: 30px;
+    line-height: 100%;
     font-weight: 600;
     color: #FB5B0D; /* Оранжевый цвет заголовка */
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .why-left p {
@@ -735,19 +620,22 @@ body {
 /* Каждый блок статистики */
 .stats-item {
     text-align: center;
+    margin: 0px 70px;
 }
 
 .stats-item h3 {
-    font-size: 40px;
-    color: #0064D2; /* Синий цвет для цифр (по примеру) */
+    font-size: 94px;
+    color: #575EFF; /* Синий цвет для цифр (по примеру) */
+    letter-spacing: -1%;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 15px;
 }
 
 .stats-item p {
-    font-size: 16px;
-    color: #555;
-    font-weight: 400;
+    font-size: 21px;
+    color: #4B4B4B;
+    font-weight: 700;
+    line-height: 39px;
 }
 
 /* Адаптивность (опционально) */
@@ -773,7 +661,6 @@ body {
     align-items: flex-start;
     justify-content: space-between;
     gap: 40px; /* Расстояние между левой колонкой и слайдером */
-    flex-wrap: wrap; /* Позволяет перестраиваться на узких экранах */
 }
 
 /* Левая часть (заголовок, абзац) */
@@ -783,20 +670,24 @@ body {
 }
 
 .reviews-left h2 {
-    font-size: 24px;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 48px;
     color: #FB5B0D; /* Оранжевый заголовок */
-    margin-bottom: 16px;
+    margin-bottom: 24px;
 }
 
 .reviews-left p {
-    font-size: 16px;
-    line-height: 1.5;
-    color: #555;
+    font-size: 17px;
+    line-height: 28px;
+    color: #262323;
+    font-weight: 400;
 }
 
 /* Правая часть (слайдер) */
 .reviews-right {
     flex: 2 1 400px; /* Можно изменить пропорцию колонок */
+    max-width: 790px;
 }
 
 /* Карточка отзыва */
@@ -804,9 +695,10 @@ body {
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-    padding: 20px;
+    padding: 50px 35px;
     display: flex;
     flex-direction: column;
+    width: 380px !important;
     gap: 12px;
 }
 
@@ -814,34 +706,38 @@ body {
 .review-header {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 24px;
+    margin-bottom: 18px;
 }
 
 .review-avatar {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
+    width: 100px !important;
+    height: 100px !important;
+    border-radius: 50% !important;
     object-fit: cover;
 }
 
 .review-name {
-    font-weight: 600;
-    color: #333;
-    font-size: 16px;
+    font-weight: 500;
+    color: #262323;
+    font-size: 18px;
+    line-height: 28px;
 }
 
 /* Основной контент отзыва */
 .review-content h3 {
     font-size: 18px;
     color: #FB5B0D; /* Выделяем заголовок отзыва оранжевым */
-    margin-bottom: 8px;
+    margin-bottom: 24px;
+    font-weight: 600;
+    line-height: 28px;
 }
 
 .review-content p {
     font-size: 14px;
-    line-height: 1.5;
-    color: #555;
-    margin-bottom: 8px;
+    line-height: 26px;
+    color: #262323;
+    margin-bottom: 15px;
 }
 
 /* Ссылка на видео (Watch Video) */
@@ -886,40 +782,45 @@ body {
 /* Левая часть (градиентный блок) */
 .contact-left {
     flex: 1 1 300px;
-    max-width: 400px; /* Ширина, если нужно ограничить */
-    background: linear-gradient(135deg, #8A56D1, #D67ECC);
-    border-radius: 10px;
+    max-width: 450px; /* Ширина, если нужно ограничить */
+    background: radial-gradient(135.18% 361.18% at 77.56% -56.19%, #575EFF 0%, #FF864B 99.99%, #FF8144 100%);
+    border-radius: 20px;
     color: #fff;
-    padding: 40px 20px;
+    padding: 40px 78px;
     box-sizing: border-box;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    box-shadow: 5px 10px 20px 0 #0000001F;
     display: flex;
     flex-direction: column;
     justify-content: center; /* Центрируем контент по вертикали */
 }
 
 .contact-left h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 30px;
+    margin-bottom: 30px;
+    line-height: 100%;
     font-weight: 600;
+    letter-spacing: 0;
 }
 
 .contact-left p {
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 20px;
+    font-size: 17px;
+    line-height: 28px;
+    margin-bottom: 35px;
+    font-width: 400;
+    letter-spacing: 0;
 }
 
 /* Список с часами работы */
 .business-hours {
     list-style: none;
     padding: 0;
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 18px;
+    line-height: 100%;
+    font-weight: 600;
 }
 
 .business-hours li {
-    margin-bottom: 8px;
+    margin-bottom: 18px;
 }
 
 /* Правая часть (белая карточка) */
@@ -933,11 +834,11 @@ body {
 /* Карточка с формой */
 .contact-form-card {
     background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 5px 10px 20px 0px #0000001F;
+    padding: 60px;
     width: 100%;
-    max-width: 450px;
+    max-width: 710px;
     box-sizing: border-box;
 }
 
@@ -977,27 +878,38 @@ body {
     border-color: #8A56D1; /* Цвет фокуса (совпадает с градиентом) */
 }
 
+.contact-btn {
+    display: flex;
+    justify-content: space-between;
+}
+
 /* Блок recaptcha */
 .recaptcha-info {
     font-size: 12px;
     color: #999;
+    line-height: 19px;
     margin-bottom: 20px;
+    font-weight: 500;
 }
 
 .recaptcha-info a {
     color: #8A56D1;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
+}
+
+.recaptcha-info a:hover {
+    text-decoration: underline;
 }
 
 /* Кнопка отправки */
 .btn-submit {
     background: #FB5B0D; /* Оранжевый цвет */
     color: #fff;
-    padding: 14px 24px;
+    padding: 18px 28px;
     border: none;
-    border-radius: 6px;
-    font-size: 16px;
+    border-radius: 10px;
+    font-size: 18px;
     font-weight: 600;
     cursor: pointer;
     transition: background 0.3s ease;
@@ -1031,7 +943,7 @@ body {
     display: flex;
     flex-wrap: wrap; /* Чтобы на узких экранах колонки перестраивались */
     gap: 40px;
-    padding: 40px 0;
+    padding: 80px 0;
 }
 
 /* Колонки футера */
@@ -1042,7 +954,7 @@ body {
 /* Левая колонка (логотип + контакты) */
 .footer-col-left .footer-logo img {
     max-width: 120px; /* Ширина логотипа, подберите под свой дизайн */
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 .footer-contacts {
@@ -1054,8 +966,13 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 12px;
+    margin-bottom: 30px;
     color: #fff; /* Белый текст для контактов */
+}
+
+.footer-contacts li span {
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .footer-contacts img {
@@ -1065,39 +982,46 @@ body {
 
 /* Средняя колонка (текст, форма) */
 .footer-col-middle h3 {
-    font-size: 16px;
+    font-size: 20px;
     color: #FB5B0D; /* Оранжевый заголовок */
-    margin-bottom: 10px;
+    line-height: 28px;
+    margin-bottom: 18px;
     font-weight: 600;
 }
 
 .footer-note {
-    color: #ccc;
-    margin-bottom: 20px;
-    line-height: 1.4;
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 25px;
+    line-height: 22px;
+    font-weight: 500;
 }
 
 .subscribe-form {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 16px;
+    margin-bottom: 35px;
 }
 
 .subscribe-form input {
     flex: 1;
-    padding: 10px;
-    border: none;
-    border-radius: 6px;
+    background: transparent;
+    padding: 13px 18px;
+    border: 2px solid #FB5B0D;
+    color: #fff;
+    border-radius: 10px;
     outline: none;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .subscribe-form button {
     background: #FB5B0D;
     color: #fff;
     border: none;
-    border-radius: 6px;
-    padding: 10px 14px;
+    border-radius: 10px;
+    padding: 13px 15px;
     cursor: pointer;
     transition: background 0.3s;
 }
@@ -1106,9 +1030,16 @@ body {
     background: #d54a0b; /* Темнее оранжевый */
 }
 
+.inst-icons {
+    display: flex;
+}
+
 .footer-subscribe {
     color: #fff;
     font-weight: 500;
+    font-size: 16px;
+    margin-left: 25px;
+    margin-top: 6px;
 }
 
 /* Правая колонка (меню) */
@@ -1118,17 +1049,19 @@ body {
 }
 
 .footer-menu li {
-    margin-bottom: 8px;
+    margin-bottom: 11px;
 }
 
 .footer-menu a {
     text-decoration: none;
     color: #ccc;
     transition: color 0.2s;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .footer-menu a:hover {
-    color: #fff;
+    color: #FB5B0D;
 }
 
 /* Нижняя часть футера */
@@ -1163,3 +1096,84 @@ body {
         gap: 10px;
     }
 }
+
+/* Общий контейнер */
+.certificates-right {
+    flex: 2 1 400px; /* Можно изменить пропорцию колонок */
+    max-width: 790px;
+}
+
+/* Заголовок блока */
+.certificates-title {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28px;
+    margin-bottom: 30px;
+    color: #FB5B0D;
+}
+
+/* Карточка сертификата (один слайд) */
+.certificate-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px;
+}
+
+/* Обёртка с картинкой (для того, чтобы удобно располагать иконку лупы) */
+.certificate-image-wrap {
+    position: relative; /* нужно для позиционирования иконки поверх изображения */
+    display: inline-block;
+    max-width: 300px; /* ширина сертификата, настраивайте по вкусу */
+    margin: 0 auto;
+}
+
+/* Само изображение сертификата */
+.certificate-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid #ccc;        /* тонкая рамка */
+    border-radius: 8px;           /* скруглённые углы */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* лёгкая тень */
+}
+
+/* Иконка увеличения (лупа) */
+.zoom-icon {
+    position: absolute;
+    bottom: 10px;   /* можно варьировать */
+    right: 10px;    /* можно варьировать */
+    width: 32px;
+    height: 32px;
+    display: block;
+    opacity: 0.8;   /* полупрозрачность, чтобы не перекрывала изображение */
+    transition: opacity 0.2s ease-in-out;
+}
+
+.zoom-icon:hover {
+    opacity: 1;     /* при ховере иконка полностью видна */
+}
+
+/* Если у вас файл zoom.svg, лучше задать ему размеры через CSS: */
+.zoom-icon img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Стили для Swiper (примерно) */
+.swiper {
+    width: 100%;
+    padding-bottom: 30px; /* отступ под пагинацию */
+}
+
+/* Пагинация (точки) */
+.swiper-pagination {
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+

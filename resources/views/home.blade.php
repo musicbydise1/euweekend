@@ -14,13 +14,13 @@
             </p>
             <div class="hero-buttons">
                 <a href="#application" class="btn-primary">Send an Application</a>
-                <a href="#programms" class="btn-outline">See All Programms</a>
+                <a href="#programs" class="btn-outline">See All Programs</a>
             </div>
         </div>
     </section>
 
-    <!-- Custom Programms Section -->
-    <section class="section-programs" id="programms">
+    <!-- Custom Programs Section -->
+    <section class="section-programs" id="programs">
         <div class="container">
             <div class="section-title">
                 <h2>Camps programs</h2>
@@ -28,51 +28,46 @@
                     a huge variety of food, retail, sports and entertainment</p>
             </div>
             <div class="programs-cards">
-                <!-- Card 1 -->
+                @foreach($programs as $program)
+                    @php
+                        // Если используете мультиязычность, получаем нужный перевод:
+                        $locale = app()->getLocale(); // или 'ru' / 'en' и т.д.
+                        $translation = $program->translations->where('locale', $locale)->first();
+
+                        // Подготовим заголовок (если нет перевода, fallback на slug)
+                        $title = $translation ? $translation->title : $program->slug;
+
+                        // Даты, если заданы
+                        $start = $program->start_time ? $program->start_time->format('d M') : null;
+                        $end = $program->end_time ? $program->end_time->format('d M') : null;
+                    @endphp
                 <div class="program-card">
                     <!-- Изображение -->
-                    <img src="{{ asset('images/program1.jpg') }}" alt="Program 1" class="program-card-img">
+                    <div class="program-card-img">
+                        <img src="{{ $program->image ? asset('storage/' . $program->image) : asset('images/default_program.jpg') }}" alt="{{ $program->slug }}">
+                    </div>
+
+                    @if($program->is_premium)
+                        <span class="program-badge">premium pack</span>
+                    @endif
 
                     <!-- Кнопка, появляющаяся по центру при ховере -->
-                    <a href="#" class="read-more-btn">Read More</a>
+                    <div class="read-more-btn">
+                        <a href="{{ route('public.programs.show', ['slug' => $program->slug]) }}"  class="">Read More</a>
+                    </div>
 
                     <!-- Контент (заголовок, дата и т.д.) -->
                     <div class="program-card-content">
-                        <h3>15-day Summer Camp program in Prague</h3>
-                        <span class="card-date">18 July - 01 August</span>
+                        <h3>{{ $title }}</h3>
+                        @if($start && $end)
+                            <span class="card-date">{{ $start }} - {{ $end }}</span>
+                        @endif
                     </div>
                 </div>
-                <!-- Card 2 -->
-                <div class="program-card">
-                    <!-- Изображение -->
-                    <img src="{{ asset('images/program1.jpg') }}" alt="Program 1" class="program-card-img">
-
-                    <!-- Кнопка, появляющаяся по центру при ховере -->
-                    <a href="#" class="read-more-btn">Read More</a>
-
-                    <!-- Контент (заголовок, дата и т.д.) -->
-                    <div class="program-card-content">
-                        <h3>15-day Summer Camp program in Prague</h3>
-                        <span class="card-date">18 July - 01 August</span>
-                    </div>
-                </div>
-                <!-- Card 3 -->
-                <div class="program-card">
-                    <!-- Изображение -->
-                    <img src="{{ asset('images/program1.jpg') }}" alt="Program 1" class="program-card-img">
-
-                    <!-- Кнопка, появляющаяся по центру при ховере -->
-                    <a href="#" class="read-more-btn">Read More</a>
-
-                    <!-- Контент (заголовок, дата и т.д.) -->
-                    <div class="program-card-content">
-                        <h3>15-day Summer Camp program in Prague</h3>
-                        <span class="card-date">18 July - 01 August</span>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="section-programs-btn">
-                <a href="#">See All Programms</a>
+                <a href="#">See All Programs</a>
             </div>
         </div>
     </section>
@@ -229,7 +224,7 @@
 
     <!-- Why Us Section -->
     <section class="why-choose-section">
-        <div class="container why-choose-inner">
+        <div class="why-choose-inner">
             <!-- Левая колонка -->
             <div class="why-left">
                 <h2>Почему Стоит Выбрать EU Weekend?</h2>
@@ -271,69 +266,107 @@
 
             <!-- Правая часть: слайдер Swiper -->
             <div class="reviews-right">
+                <!-- Один общий контейнер Swiper для всех отзывов -->
                 <div class="swiper mySwiperReviews">
                     <div class="swiper-wrapper">
-                        <!-- Слайд 1 -->
-                        <div class="swiper-slide review-card">
-                            <div class="review-header">
-                                <img class="review-avatar"
-                                     src="{{ asset('images/mina.jpg') }}"
-                                     alt="Mina Isoda">
-                                <div class="review-name">Mina Isoda, Japan</div>
+                        @foreach($reviews as $review)
+                            @php
+                                // Получаем нужный перевод:
+                                $locale = app()->getLocale();
+                                $translation = $review->translations->where('locale', $locale)->first();
+                                // Заголовок: если перевода нет, fallback на slug
+                                $title = $translation ? $translation->title : $review->slug;
+                            @endphp
+
+                                <!-- Каждый отзыв как слайд -->
+                            <div class="swiper-slide review-card">
+                                <div class="review-header">
+                                    <img class="review-avatar"
+                                         src="{{ $review->avatar ? asset('storage/' . $review->avatar) : asset('images/default_program.jpg') }}"
+                                         alt="{{ $review->name }}">
+                                    <div class="review-name">
+                                        {{ $review->name }}, {{ $review->country }} <br /> {{ $review->age }} лет
+                                    </div>
+                                </div>
+                                <div class="review-content">
+                                    <p>
+                                        {{ $title }}
+                                    </p>
+                                    @if($review->video_url)
+                                        <a href="{{ $review->video_url }}" class="review-video-link">Watch Video</a>
+                                    @endif
+                                </div>
                             </div>
-                            <div class="review-content">
-                                <h3>It Was An Unforgettable Experience In My Life!</h3>
-                                <p>
-                                    I Didn’t Just Learn English In EU Weekend,
-                                    I Also Learned About Different Cultures Through
-                                    All The Students From All Over The World Who Studied With Me
-                                </p>
-                                <a href="#" class="review-video-link">Watch Video</a>
-                            </div>
-                        </div>
-                        <!-- Слайд 2 -->
-                        <div class="swiper-slide review-card">
-                            <div class="review-header">
-                                <img class="review-avatar"
-                                     src="{{ asset('images/monica.jpg') }}"
-                                     alt="Monica Serrano">
-                                <div class="review-name">Monica Serrano, Colombia</div>
-                            </div>
-                            <div class="review-content">
-                                <h3>At EU You Don’t Feel Like Just Another Student In The Classroom</h3>
-                                <p>
-                                    Studying A Second Language Is A Difficult Process,
-                                    And The School Took Care Of My Individual Learning Needs,
-                                    Making This Process Not Only Easy But Friendly.
-                                    Great School, Lovely Teachers.
-                                </p>
-                                <!-- Если тоже есть видео -->
-                                <a href="#" class="review-video-link">Watch Video</a>
-                            </div>
-                        </div>
-                        <!-- Слайд 3 (пример) -->
-                        <div class="swiper-slide review-card">
-                            <div class="review-header">
-                                <img class="review-avatar"
-                                     src="{{ asset('images/user3.jpg') }}"
-                                     alt="Another Student">
-                                <div class="review-name">John Doe, Italy</div>
-                            </div>
-                            <div class="review-content">
-                                <h3>Good teachers, cozy atmosphere</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Aliquam luctus semper purus, sed tempor velit eleifend in.
-                                </p>
-                                <a href="#" class="review-video-link">Watch Video</a>
-                            </div>
-                        </div>
-                        <!-- Добавьте больше слайдов, если нужно -->
+                        @endforeach
                     </div>
-                    <!-- Пагинация (точки) -->
+                    <!-- Единая пагинация для всего слайдера -->
                     <div class="swiper-pagination"></div>
                 </div>
             </div>
+
+        </div>
+    </section>
+
+    <section class="reviews-section">
+        <div class="container reviews-inner">
+            <!-- Левая часть: заголовок и текст -->
+            <div class="reviews-left">
+                <h2>Certificates from
+                    our partners </h2>
+                <p>
+                    We carry out regular teacher evaluations and our students consistently rate
+                    their courses and teachers 4.8 and above.
+                </p>
+            </div>
+
+            <!-- Правая часть: слайдер Swiper -->
+            <div class="certificates-right">
+                <!-- Заголовок блока (как на скриншоте "American University in Dubai") -->
+
+                <!-- Обёртка слайдера -->
+                <div class="swiper mySwiperReviews">
+                    <!-- Внутренний контейнер слайдов -->
+                    <div class="swiper-wrapper">
+                        <!-- Карточка сертификата 1 -->
+                        <div class="swiper-slide certificate-card">
+                            <h2 class="certificates-title">American University In Dubai</h2>
+                            <div class="certificate-image-wrap">
+                                <img
+                                    src="{{ asset('images/certificate-1.png') }}"
+                                    alt="Сертификат 1"
+                                    class="certificate-image"
+                                >
+                                <!-- Кнопка увеличения (лупа/иконка) -->
+                            </div>
+                            <a href="{{ asset('images/certificate-1.png') }}" class="zoom-icon" target="_blank">
+                                <img src="{{ asset('images/icons/zoom-icon.svg') }}" alt="Zoom">
+                            </a>
+                        </div>
+
+                        <!-- Карточка сертификата 2 -->
+                        <div class="swiper-slide certificate-card">
+                            <h2 class="certificates-title">American University In Dubai</h2>
+                            <div class="certificate-image-wrap">
+                                <img
+                                    src="{{ asset('images/certificate-2.png') }}"
+                                    alt="Сертификат 2"
+                                    class="certificate-image"
+                                >
+                                <a href="{{ asset('images/certificate-2.png') }}" class="zoom-icon" target="_blank">
+                                    <img src="{{ asset('images/icons/zoom-icon.svg') }}" alt="Zoom">
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Добавьте столько карточек, сколько нужно -->
+                    </div>
+
+                    <!-- Пагинация для слайдера (точки) -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+
+
         </div>
     </section>
 
@@ -341,9 +374,9 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             new Swiper('.mySwiperReviews', {
-                slidesPerView: 2,
+                slidesPerView: 1,
                 spaceBetween: 30,
-                loop: true,
+                loop: false,
                 pagination: {
                     el: '.swiper-pagination',
                     clickable: true,
@@ -357,10 +390,11 @@
                     },
                     480: {
                         slidesPerView: 1,
-                    }
+                    },
                 }
             });
         });
+
     </script>
 
 
@@ -374,7 +408,7 @@
             <div class="contact-left">
                 <h3>Drop Us A Line!</h3>
                 <p>
-                    Contact us for any queries you may have, <br>
+                    Contact us for any queries you may have,
                     and leave the rest to us.
                 </p>
                 <ul class="business-hours">
@@ -387,8 +421,6 @@
             <div class="contact-right">
                 <form action="#" method="POST" class="contact-form-card">
                     @csrf
-                    <h3>Свяжитесь с нами</h3>
-
                     <div class="form-group">
                         <label for="name">Имя</label>
                         <input
@@ -428,13 +460,15 @@
                     </div>
 
                     <!-- recaptcha-информация (пример) -->
-                    <p class="recaptcha-info">
-                        This site is protected by reCAPTCHA and the <br>
-                        Google <a href="#">Privacy Policy</a> and
-                        <a href="#">Terms of Service</a> apply.
-                    </p>
+                    <div class="contact-btn">
+                        <p class="recaptcha-info">
+                            This site is protected by reCAPTCHA and the <br>
+                            Google <a href="#">Privacy Policy</a> and
+                            <a href="#">Terms of Service</a> apply.
+                        </p>
 
-                    <button type="submit" class="btn-submit">Оставить заявку</button>
+                        <button type="submit" class="btn-submit">Оставить заявку</button>
+                    </div>
                 </form>
             </div>
         </div>

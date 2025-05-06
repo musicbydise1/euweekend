@@ -15,9 +15,9 @@ class DatabaseSeeder extends Seeder
     {
         // Создание одного тестового пользователя
         User::create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-            'password' => Hash::make('password123'), // Надёжный захешированный пароль
+            'name' => 'Admin',
+            'email' => 'admin@admin.com',
+            'password' => Hash::make('admin2025'), // Надёжный захешированный пароль
             'is_admin' => true
         ]);
     }

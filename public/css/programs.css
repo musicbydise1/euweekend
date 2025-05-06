@@ -4,7 +4,6 @@
 
 /* Внутренний контейнер */
 .programs-inner {
-    padding: 40px;
 }
 
 .hero-programs .hero-content-container {
@@ -145,15 +144,15 @@
 
 /* Сетка карточек программ */
 .programs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 /* Карточка */
 .program-card {
     background: #fff;
-    border-radius: 10px;
+    border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 2px 15px rgba(0,0,0,0.05);
     display: flex;
@@ -182,13 +181,14 @@
 /* Бейдж «premium pack» */
 .program-badge {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    background: #FB5B0D;
+    top: 62%;
+    background: radial-gradient(93.11% 258.89% at 79.16% 6.51%, #575EFF 0%, #FF864B 99.99%, #FF8144 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
     color: #fff;
-    font-size: 12px;
-    padding: 6px 8px;
-    border-radius: 6px;
+    font-size: 18px;
+    padding: 9px 8px;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
 }
 
 /* Кнопка «Read More» по центру картинки */
@@ -472,3 +472,84 @@
 .btn-done:hover {
     background: #4856d0;
 }
+
+
+
+/* === Общий контейнер FAQ === */
+.faq-section {
+    background: #575EFF; /* Яркий фиолетовый/сине-фиолетовый фон */
+    padding: 100px 20px 200px 20px; /* Отступы сверху/снизу */
+    color: #fff;        /* Белый текст по умолчанию */
+}
+
+.faq-container {
+    max-width: 900px;   /* Ширина контейнера */
+    margin: 0 auto;     /* Центрируем */
+}
+
+/* Заголовок FAQ */
+.faq-title {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 40px;
+    text-align: left; /* или center, если хотите */
+}
+
+/* Каждый FAQ-item */
+.faq-item {
+    /* open/закрытый будет переключаться JS-скриптом */
+    padding: 20px 0;
+}
+
+/* Линия между вопросами (hr) */
+.faq-container hr {
+    border: none;
+    border-top: 1px solid #ffffff66; /* Лёгкая белая полупрозрачная линия */
+    margin: 0; /* Убираем отступы, т.к. они в .faq-item */
+}
+
+/* Блок вопроса */
+.faq-question {
+    display: flex;
+    align-items: center;
+    cursor: pointer; /* Показываем, что кликабельно */
+}
+
+/* Иконка + или - */
+.faq-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #575EFF;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+    transition: transform 0.3s ease;
+}
+
+/* Текст вопроса */
+.faq-question-text {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* Ответ (скрыт по умолчанию) */
+.faq-answer {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ffffffcc; /* Немного приглушённый белый */
+    margin-top: 16px;
+    display: none; /* По умолчанию скрыто */
+}
+
+/* Когда .faq-item имеет класс .open, можно задать стили (например, иконку менять) */
+.faq-item.open .faq-icon {
+    transform: rotate(180deg);
+    /* или можно менять цвет, если нужно */
+}
+
+

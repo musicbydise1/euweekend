@@ -11,13 +11,13 @@
             </p>
             <div class="hero-buttons">
                 <a href="#application" class="btn-primary">Send an Application</a>
-                <a href="#programms" class="btn-outline">See All Programms</a>
+                <a href="#programs" class="btn-outline">See All Programs</a>
             </div>
         </div>
     </section>
 
     <section class="achievements-section">
-        <div class="container achievements-inner">
+        <div class="achievements-inner">
             <!-- Левая часть: текст и кнопка -->
             <div class="achievements-left">
                 <h2>Our Achievements</h2>
@@ -29,7 +29,7 @@
                     Successful admission to Czech universities requires knowledge of the Czech language
                     at the B2-C1 level, as well as specialized preparation for entrance exams.
                 </p>
-                <a href="#" class="achievements-btn">See All Programms</a>
+                <a href="#" class="achievements-btn">See All Programs</a>
             </div>
 
             <!-- Правая часть: видео (миниатюра) -->
@@ -59,34 +59,39 @@
             </div>
 
             <!-- Средняя колонка: две перекрывающиеся картинки -->
-            <div class="team-center">
-                <div class="img-wrapper img-top">
-                    <img src="{{ asset('images/team1.jpg') }}" alt="Team photo 1">
+            <div class="team-main">
+                <div class="team-center">
+                    <div class="img-wrapper img-top">
+                        <img src="{{ asset('images/team1.jpeg') }}" alt="Team photo 1">
+                    </div>
+                    <div class="img-wrapper img-bottom">
+                        <img src="{{ asset('images/team2.jpeg') }}" alt="Team photo 2">
+                    </div>
                 </div>
-                <div class="img-wrapper img-bottom">
-                    <img src="{{ asset('images/team2.jpg') }}" alt="Team photo 2">
-                </div>
-            </div>
 
-            <!-- Правая колонка: текст + кнопка -->
-            <div class="team-right">
-                <p>
-                    Мы динамично-развивающийся молодой коллектив, но уже
-                    с достаточным опытом в сфере образовательных кампаний. Наша
-                    главная цель — помочь каждому студенту раскрыть свой потенциал
-                    и добиться успеха.
-                </p>
-                <p>
-                    Локации, культурные и учебные программы, преподаватели,
-                    персональный подход — всё это создаёт благоприятную атмосферу
-                    для обучения и обмена опытом.
-                </p>
-                <p>
-                    Мы оказываем вам любую дополнительную услугу, которая может
-                    вам понадобиться, например, консультирование по проживанию
-                    и страхованию.
-                </p>
-                <a href="#" class="team-btn">Get In Touch</a>
+                <!-- Правая колонка: текст + кнопка -->
+                <div class="team-right">
+                    <p>
+                        Мы динамично-развивающийся молодой коллектив, но уже
+                        с достаточным опытом в сфере образовательных каникул.
+                        Наши клиенты и партнеры разбросаны по всему миру.
+                        Мы говорим на русском, украинском, казахском, английском, чешском,
+                        немецком, французском языках и всегда учимся чему-то новому.
+                        Именно поэтому мы создаем каникулярные программы, которые дают провести время отдыха с пользой.
+                    </p>
+                    <p>
+                        Локации, культурные и учебные программы, преподавателей и резиденции для
+                        проживания всегда проходят нашу проверку. Мы лично посещаем все места и только
+                        после этого можем рекомендовать их нашим студентам.
+
+                    </p>
+                    <p>
+                        Мы оказываем вам любую дополнительную услугу, которая может
+                        вам понадобиться, например, консультирование по проживанию
+                        и страхованию.
+                    </p>
+                    <a href="#" class="team-btn">Get In Touch</a>
+                </div>
             </div>
         </div>
     </section>
@@ -104,42 +109,65 @@
             </div>
 
             <!-- Слайдер Swiper -->
-            <div class="swiper mySwiperGallery">
+            <div class="swiper mySwiper">
+                <!-- Контейнер слайдов -->
                 <div class="swiper-wrapper">
                     <!-- Слайд 1 -->
-                    <div class="swiper-slide gallery-card">
-                        <img src="{{ asset('images/gallery1.jpg') }}" alt="Gallery Image 1">
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/slide1.jpeg') }}" alt="Photo 1" />
                     </div>
                     <!-- Слайд 2 -->
-                    <div class="swiper-slide gallery-card">
-                        <img src="{{ asset('images/gallery2.jpg') }}" alt="Gallery Image 2">
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/slide2.jpeg') }}" alt="Photo 2" />
                     </div>
                     <!-- Слайд 3 -->
-                    <div class="swiper-slide gallery-card">
-                        <img src="{{ asset('images/gallery3.jpg') }}" alt="Gallery Image 3">
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/slide3.jpeg') }}" alt="Photo 3" />
                     </div>
-                    <!-- Добавьте больше слайдов при необходимости -->
+                    <!-- Слайд 4 -->
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/slide4.jpeg') }}" alt="Photo 4" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/slide5.jpeg') }}" alt="Photo 4" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/slide6.jpeg') }}" alt="Photo 4" />
+                    </div>
+                    <!-- Добавьте больше слайдов по необходимости -->
                 </div>
+
                 <!-- Пагинация (точки) -->
                 <div class="swiper-pagination"></div>
             </div>
+        </div>
+
+        <div class="container cta-gradient-inner">
+            <div class="cta-gradient-text">
+                <h2>Каникулы, Которые Изменят Твою Жизнь</h2>
+                <p>
+                    Свяжитесь с нами, и мы с радостью подберем <br /> для вас подходящий курс!
+                </p>
+            </div>
+            <a href="#" class="cta-gradient-btn">Оставить заявку</a>
         </div>
     </section>
 
     <!-- Скрипт инициализации Swiper -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            new Swiper('.mySwiperGallery', {
-                slidesPerView: 3,         // Сколько карточек показывать на больших экранах
-                spaceBetween: 20,         // Отступ между карточками
-                loop: true,               // Зациклить прокрутку (опционально)
+            new Swiper('.mySwiper', {
+                slidesPerView: 2,          // Сколько слайдов показывать за раз (на больших экранах)
+                spaceBetween: 32,          // Отступ между слайдами (px)
+                loop: true,                // Зациклить прокрутку (опционально)
                 pagination: {
                     el: '.swiper-pagination',
-                    clickable: true,
+                    clickable: true,       // Можно кликать по точкам пагинации
                 },
+                // Адаптивные настройки
                 breakpoints: {
                     1024: {
-                        slidesPerView: 3,
+                        slidesPerView: 4,
                     },
                     768: {
                         slidesPerView: 2,
@@ -152,16 +180,4 @@
         });
     </script>
 
-
-    <section class="cta-gradient-section">
-        <div class="container cta-gradient-inner">
-            <div class="cta-gradient-text">
-                <h2>Каникулы, Которые Изменят Твою Жизнь</h2>
-                <p>
-                    Свяжитесь с нами, и мы с радостью подберем для вас подходящий курс!
-                </p>
-            </div>
-            <a href="#" class="cta-gradient-btn">Оставить заявку</a>
-        </div>
-    </section>
 @endsection

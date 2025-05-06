@@ -1,3 +1,5 @@
+/* ========== ОСНОВНЫЕ СЕКЦИИ И СТИЛИ (базовый десктоп) ========== */
+
 /* Обёртка секции */
 .achievements-section {
     padding: 60px 20px;
@@ -6,11 +8,15 @@
 
 /* Внутренний контейнер */
 .achievements-inner {
+    background: #fff;
+    border-radius: 30px;
     display: flex;
     gap: 40px;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap; /* Позволит перестраивать колонки на мобильных */
+    flex-wrap: wrap; /* Перестраивает колонки на мобильных */
+    margin: 0 50px;
+    padding: 100px 70px;
 }
 
 /* Левая часть (текст) */
@@ -20,17 +26,17 @@
 }
 
 .achievements-left h2 {
-    font-size: 24px;
+    font-size: 30px;
     color: #FB5B0D;  /* Оранжевый заголовок */
-    margin-bottom: 16px;
+    margin-bottom: 28px;
     font-weight: 600;
 }
 
 .achievements-left p {
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 16px;
-    color: #555;     /* Серый цвет текста */
+    font-size: 17px;
+    line-height: 28px;
+    color: #262323;     /* Серый цвет текста */
+    margin-bottom: 24px;
 }
 
 /* Кнопка */
@@ -38,11 +44,13 @@
     display: inline-block;
     background: #FB5B0D; /* Оранжевый */
     color: #fff;
-    padding: 14px 24px;
-    border-radius: 8px;
+    padding: 18px 28px;
+    border-radius: 10px;
     text-decoration: none;
     font-weight: 600;
     transition: background 0.3s;
+    margin-top: 40px;
+    font-size: 18px;
 }
 
 .achievements-btn:hover {
@@ -94,42 +102,43 @@
     height: 24px;
 }
 
+/* Секция команды */
 .team-section {
-    padding: 60px 20px; /* Отступы сверху и снизу */
+    padding: 100px 20px; /* Отступы сверху и снизу */
 }
 
 /* Внутренний контейнер, состоящий из трех колонок */
-.team-inner {
+.team-main {
     display: flex;
-    flex-wrap: wrap;    /* Чтобы на мобильных колонки шли друг под другом */
-    gap: 40px;          /* Расстояние между колонками */
-    align-items: flex-start;
+    justify-content: space-between;
 }
 
-/* === Левая колонка (заголовок и короткий текст) === */
+/* Левая колонка (заголовок и короткий текст) */
 .team-left {
-    flex: 1 1 300px;
-    max-width: 300px;   /* Ширина подбирается по вкусу */
+    margin-bottom: 100px;
 }
 
 .team-left h2 {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: 600;
+    line-height: 100%;
     color: #FB5B0D; /* Оранжевый цвет */
-    margin-bottom: 16px;
+    margin-bottom: 28px;
+    max-width: 590px;
 }
 
 .team-left p {
-    font-size: 16px;
-    line-height: 1.5;
-    color: #555;
+    font-size: 17px;
+    line-height: 28px;
+    color: #262323;
+    max-width: 590px;
 }
 
-/* === Средняя колонка (две картинки) === */
+/* Средняя колонка (две картинки) */
 .team-center {
     flex: 1 1 300px;
     position: relative; /* Для перекрытия */
-    max-width: 350px;   /* При необходимости */
+    max-width: 500px;   /* При необходимости */
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -138,44 +147,47 @@
 /* Обёртка для каждой картинки */
 .img-wrapper {
     position: absolute;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-    border-radius: 10px;
+    box-shadow: 5px 10px 20px 0px #0000001A;
+    border-radius: 4px;
     overflow: hidden;
-    width: 200px;       /* Ширина картинки (можно менять) */
 }
 
 /* Верхняя картинка (меньше, сдвинута вверх) */
 .img-top {
     top: 0;
-    left: 0;
-    z-index: 2;         /* Выше нижней */
+    right: 0;
+    z-index: 1;         /* Выше нижней */
+    width: 285px;
+    height: 304px;
+    object-fit: contain;
 }
 
-/* Нижняя картинка (чуть больше, смещена вниз и вправо) */
+/* Нижняя картинка (чуть больше, смещена вниз) */
 .img-bottom {
-    top: 80px;
-    left: 80px;
-    width: 220px;       /* Больше */
-    z-index: 1;
+    top: 220px;
+    z-index: 2;
+    width: 356px;
+    height: 262px;
 }
 
 .img-wrapper img {
     width: 100%;
     display: block;
     object-fit: cover;
+    height: 100%;
 }
 
-/* === Правая колонка (текст + кнопка) === */
+/* Правая колонка (текст + кнопка) */
 .team-right {
     flex: 1 1 300px;
-    max-width: 350px; /* Можно увеличить при желании */
+    max-width: 560px; /* Можно увеличить при желании */
 }
 
 .team-right p {
-    font-size: 16px;
-    line-height: 1.5;
-    color: #555;
-    margin-bottom: 16px;
+    font-size: 17px;
+    line-height: 28px;
+    color: #262323;
+    margin-bottom: 36px;
 }
 
 /* Кнопка */
@@ -183,81 +195,48 @@
     display: inline-block;
     background: #FB5B0D; /* Оранжевый */
     color: #fff;
-    padding: 14px 24px;
+    padding: 18px 28px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
     transition: background 0.3s;
+    float: right;
+    font-size: 18px;
 }
 
 .team-btn:hover {
     background: #d54a0b; /* Темнее при ховере */
 }
 
-/* === Адаптивность для мобильных устройств === */
-@media (max-width: 992px) {
-    /* Подправим смещение картинок */
-    .img-bottom {
-        top: 60px;
-        left: 60px;
-    }
-}
-
-@media (max-width: 768px) {
-    .team-inner {
-        flex-direction: column; /* Колонки идут друг под другом */
-    }
-    .team-left, .team-center, .team-right {
-        max-width: 100%;
-    }
-    /* Уберём absolute, чтобы картинки шли по порядку */
-    .team-center {
-        position: static;
-        display: block;
-        margin-bottom: 20px;
-    }
-    .img-wrapper {
-        position: static;
-        margin-bottom: 20px;
-        width: 100%;
-    }
-    .img-bottom {
-        margin-top: -20px; /* Небольшое наложение (опционально) */
-        left: 0;
-    }
-}
-
 /* Секция галереи */
 .gallery-section {
-    padding: 60px 20px;
+    padding: 100px 20px;
     background: #fff; /* Или любой другой цвет/фон */
 }
 
 /* Внутренний контейнер */
 .gallery-inner {
-    display: flex;
-    flex-wrap: wrap; /* Позволяет перестраивать блоки на мобильных */
-    gap: 40px;       /* Расстояние между текстовым блоком и слайдером */
-    align-items: center;
+    /* Можно добавить display: flex; или другие стили, если нужно располагать текст и слайдер в строку */
 }
 
 /* Текст (заголовок + абзац) */
 .gallery-text {
     flex: 1 1 300px;
     max-width: 400px; /* Ширина, чтобы текст не растягивался */
+    margin-bottom: 80px;
 }
 
 .gallery-text h2 {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: 600;
     color: #FB5B0D; /* Оранжевый заголовок */
-    margin-bottom: 16px;
+    margin-bottom: 28px;
 }
 
 .gallery-text p {
-    font-size: 16px;
-    line-height: 1.5;
-    color: #555;
+    font-size: 17px;
+    line-height: 28px;
+    color: #262323;
 }
 
 /* Контейнер слайдера (Swiper) */
@@ -283,7 +262,7 @@
     border-radius: 10px;
 }
 
-/* Пагинация (точки) */
+/* Пагинация (точки Swiper) */
 .swiper-pagination-bullet {
     background: #ccc; /* Цвет точек */
     opacity: 1;       /* По умолчанию Swiper может ставить 0.2 */
@@ -293,70 +272,299 @@
     background: #FB5B0D; /* Оранжевый цвет активной точки */
 }
 
-/* Адаптивность */
-@media (max-width: 768px) {
-    .gallery-inner {
-        flex-direction: column; /* Текст над слайдером */
-    }
-    .gallery-text {
-        max-width: 100%;
-    }
-    .mySwiperGallery {
-        max-width: 100%;
-    }
-}
-
 /* Секция с градиентным фоном */
 .cta-gradient-section {
-    /* Пример градиента (фиолетово-оранжевый). Подберите точные цвета из макета */
-    background: linear-gradient(90deg, #8A56D1 0%, #D67ECC 100%);
-    border-radius: 10px;      /* Скруглённые углы */
-    margin: 40px 0;           /* Отступ сверху и снизу секции */
-    padding: 20px 0;          /* Внутренние отступы */
-    color: #fff;              /* Белый текст */
+    background: #fff;
+    padding: 20px 0;
+    color: #fff;
 }
 
 /* Контейнер внутри */
 .cta-gradient-inner {
+    padding: 30px 100px;
+    background: radial-gradient(
+        93.11% 258.89% at 79.16% 6.51%,
+        #575EFF 0%,
+        #FF864B 99.99%,
+        #FF8144 100%
+    );
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: 150px;
 }
 
 /* Блок с заголовком и описанием */
 .cta-gradient-text h2 {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: 600;
-    margin-bottom: 8px;
+    color: #fff;
+    margin-bottom: 10px;
 }
 
 .cta-gradient-text p {
-    font-size: 16px;
-    line-height: 1.5;
+    font-size: 17px;
+    line-height: 28px;
+    color: #fff;
+    font-weight: 500;
 }
 
 /* Кнопка */
 .cta-gradient-btn {
-    background: #000;         /* Чёрный фон */
-    color: #fff;              /* Белый текст */
-    padding: 14px 28px;
+    background: #000;
+    color: #fff;
+    padding: 18px 28px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
     transition: background 0.3s ease;
+    font-size: 18px;
 }
 
 .cta-gradient-btn:hover {
-    background: #333;         /* Темнее при наведении */
+    background: #333;
 }
 
-/* Адаптивность (на мобильных кнопка может уходить вниз) */
-@media (max-width: 768px) {
+/* ========== АДАПТИВНЫЕ СТИЛИ ========== */
+
+/* -----------------------------------
+   1) Экран до 1200px (примерно ноутбуки)
+----------------------------------- */
+@media (max-width: 1200px) {
+    /* Пример легкого уменьшения отступов/размеров */
+    .achievements-inner {
+        margin: 0 30px;
+        padding: 80px 40px;
+    }
+    .achievements-left h2 {
+        font-size: 26px;
+    }
+    .achievements-left p {
+        font-size: 16px;
+    }
+    .achievements-btn {
+        padding: 16px 24px;
+        font-size: 16px;
+    }
+
+    .team-section {
+        padding: 80px 20px;
+    }
+    .team-left h2 {
+        font-size: 26px;
+    }
+
+    .gallery-section {
+        padding: 80px 20px;
+    }
+    .gallery-text h2 {
+        font-size: 26px;
+    }
+    .gallery-text p {
+        font-size: 16px;
+    }
+
+    .cta-gradient-inner {
+        padding: 30px 50px;
+        margin-top: 100px;
+    }
+    .cta-gradient-text h2 {
+        font-size: 26px;
+    }
+}
+
+/* -----------------------------------
+   2) Экран до 992px (планшеты)
+----------------------------------- */
+@media (max-width: 992px) {
+    /* achievements */
+    .achievements-inner {
+        margin: 0 20px;
+        padding: 70px 30px;
+        flex-direction: column;
+        gap: 30px;
+    }
+    .achievements-left,
+    .achievements-right {
+        max-width: 100%;
+    }
+    /* Можно выравнивать контент по центру на планшетах: */
+    .achievements-left {
+        text-align: center;
+    }
+    .achievements-btn {
+        margin-top: 20px;
+    }
+
+    /* team */
+    /* Уже есть код, можно дополнительно уточнить */
+    .img-bottom {
+        top: 60px;
+        left: 60px;
+    }
+    .team-main {
+        flex-direction: column;
+        align-items: center;
+    }
+    .team-left {
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .team-center {
+        max-width: 100%;
+        margin-bottom: 40px;
+    }
+    .team-right {
+        max-width: 100%;
+    }
+    .team-btn {
+        float: none;
+    }
+
+    /* gallery */
+    .gallery-section {
+        padding: 70px 20px;
+    }
+    .gallery-inner {
+        flex-direction: column;
+        align-items: center;
+    }
+    .gallery-text {
+        max-width: 100%;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .mySwiperGallery {
+        max-width: 100%;
+    }
+
+    /* cta gradient */
     .cta-gradient-inner {
         flex-direction: column;
+        margin-top: 80px;
         gap: 20px;
+        padding: 30px;
     }
     .cta-gradient-text {
         text-align: center;
+    }
+    .cta-gradient-btn {
+        margin: 0 auto;
+    }
+}
+
+/* -----------------------------------
+   3) Экран до 768px (малые планшеты/большие смартфоны)
+----------------------------------- */
+@media (max-width: 768px) {
+    /* achievements */
+    .achievements-inner {
+        margin: 0 15px;
+        padding: 60px 20px;
+    }
+    .achievements-left h2 {
+        font-size: 24px;
+    }
+    .achievements-left p {
+        font-size: 15px;
+    }
+    .achievements-btn {
+        font-size: 16px;
+        padding: 14px 20px;
+    }
+
+    /* team */
+    .team-main {
+        flex-direction: column;
+    }
+    .team-left,
+    .team-center,
+    .team-right {
+        max-width: 100%;
+    }
+    .team-center {
+        position: static; /* отключаем абсолютное позиционирование */
+        display: block;
+        margin-bottom: 20px;
+    }
+    .img-wrapper {
+        position: static;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    .img-bottom {
+        margin-top: -20px; /* небольшое наложение (опционально) */
+        left: 0;
+    }
+
+    /* gallery */
+    .gallery-inner {
+        flex-direction: column;
+    }
+    .gallery-text {
+        margin-bottom: 30px;
+    }
+
+    /* cta gradient */
+    .cta-gradient-inner {
+        margin-top: 60px;
+        padding: 20px;
+    }
+    .cta-gradient-text h2 {
+        font-size: 24px;
+    }
+}
+
+/* -----------------------------------
+   4) Экран до 576px (смартфоны)
+----------------------------------- */
+@media (max-width: 576px) {
+    /* achievements */
+    .achievements-left h2 {
+        font-size: 22px;
+    }
+    .achievements-left p {
+        font-size: 14px;
+    }
+    .achievements-btn {
+        font-size: 14px;
+        padding: 12px 18px;
+    }
+
+    /* team */
+    .team-left h2 {
+        font-size: 22px;
+    }
+    .team-left p {
+        font-size: 14px;
+        line-height: 24px;
+    }
+    .team-btn {
+        font-size: 16px;
+        padding: 14px 20px;
+    }
+
+    /* gallery */
+    .gallery-text h2 {
+        font-size: 22px;
+    }
+    .gallery-text p {
+        font-size: 14px;
+    }
+
+    /* cta gradient */
+    .cta-gradient-inner {
+        margin-top: 40px;
+        padding: 20px 15px;
+    }
+    .cta-gradient-text h2 {
+        font-size: 22px;
+    }
+    .cta-gradient-text p {
+        font-size: 14px;
+    }
+    .cta-gradient-btn {
+        font-size: 16px;
     }
 }

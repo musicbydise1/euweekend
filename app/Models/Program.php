@@ -27,19 +27,52 @@ class Program extends Model
     protected $casts = [
         'start_time' => 'datetime',
         'end_time' => 'datetime',
+        'is_premium' => 'boolean',
+        'price' => 'float',
+        'days' => 'integer',
+        'duration_hours' => 'integer',
+        'stock' => 'integer',
     ];
 
+    // 🔗 Переводы
     public function translations()
     {
         return $this->hasMany(ProgramTranslation::class);
     }
 
+    public function translation($locale = 'ru')
+    {
+        return $this->translations->where('locale', $locale)->first();
+    }
+
+    public function getTitleRuAttribute()
+    {
+        return $this->translations->where('locale', 'ru')->first()?->title;
+    }
+
+    public function getDescriptionRuAttribute()
+    {
+        return $this->translation('ru')?->description;
+    }
+
+    public function getTitleEnAttribute()
+    {
+        return $this->translations->where('locale', 'en')->first()?->title;
+    }
+
+    public function getDescriptionEnAttribute()
+    {
+        return $this->translation('en')?->description;
+    }
+
+    // 🔗 Категория
     public function category()
     {
         return $this->belongsTo(ProgramCategory::class, 'program_category_id');
     }
 
-    public function daysRelations() // чтобы не путать с колонкой days
+    // 🔗 Дни
+    public function daysRelations()
     {
         return $this->hasMany(Day::class);
     }

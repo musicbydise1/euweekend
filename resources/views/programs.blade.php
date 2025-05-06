@@ -13,7 +13,7 @@
                 </p>
                 <div class="hero-buttons">
                     <a href="#application" class="btn-primary">Send an Application</a>
-                    <a href="#programms" class="btn-outline">See All Programs</a>
+                    <a href="#programs" class="btn-outline">See All Programs</a>
                 </div>
             </div>
             <div class="hero-img">
@@ -26,7 +26,7 @@
     </section>
 
     <!-- Секция с программами -->
-    <section class="programs-section" id="programms">
+    <section class="programs-section" id="programs">
         <div class="container programs-inner">
             <!-- Заголовок и подзаголовок -->
             <div class="programs-header">
@@ -45,7 +45,7 @@
             </div>
 
             <!-- Сетка карточек программ (динамически) -->
-            <div class="programs-grid">
+            <div class="programs-cards">
                 @foreach($programs as $program)
                     @php
                         // Если используете мультиязычность, получаем нужный перевод:
@@ -59,27 +59,26 @@
                         $start = $program->start_time ? $program->start_time->format('d M') : null;
                         $end = $program->end_time ? $program->end_time->format('d M') : null;
                     @endphp
-
                     <div class="program-card">
-                        <div class="program-img-wrapper">
-                            {{-- Предположим, у программы есть поле "image" или заглушка --}}
-                            <img src="{{ $program->image ?? asset('images/default_program.jpg') }}"
-                                 alt="{{ $program->slug }}">
-
-                            {{-- Если программа премиум, показываем бейдж --}}
-                            @if($program->is_premium)
-                                <span class="program-badge">premium pack</span>
-                            @endif
-
-                            {{-- Кнопка Read More (ведёт на детальную страницу по slug) --}}
-                            <a href="{{ route('public.programs.show', $program->slug) }}" class="program-read-more">
-                                Read More
-                            </a>
+                        <!-- Изображение -->
+                        <div class="program-card-img">
+                            <img src="{{ $program->image ? asset('storage/' . $program->image) : asset('images/default_program.jpg') }}" alt="{{ $program->slug }}">
                         </div>
-                        <div class="program-info">
+
+                        @if($program->is_premium)
+                            <span class="program-badge">premium pack</span>
+                        @endif
+
+                        <!-- Кнопка, появляющаяся по центру при ховере -->
+                        <div class="read-more-btn">
+                            <a href="#" class="">Read More</a>
+                        </div>
+
+                        <!-- Контент (заголовок, дата и т.д.) -->
+                        <div class="program-card-content">
                             <h3>{{ $title }}</h3>
                             @if($start && $end)
-                                <span class="program-date">{{ $start }} - {{ $end }}</span>
+                                <span class="card-date">{{ $start }} - {{ $end }}</span>
                             @endif
                         </div>
                     </div>
@@ -164,4 +163,132 @@
             </div>
         </div>
     </section>
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container faq-container">
+            <h2 class="faq-title">Frequently Asked Question</h2>
+
+            <!-- FAQ Item #1 (открыт по умолчанию) -->
+            <div class="faq-item open">
+                <div class="faq-question">
+                    <!-- Иконка -->
+                    <span class="faq-icon"></span>
+                    <!-- Текст вопроса -->
+                    <span class="faq-question-text">
+                    How do I add shot change markers to the video file I am working with?
+                </span>
+                </div>
+                <div class="faq-answer" style="display: block;">
+                    Yes, you may connect your available dictionaries or obtain additional free ones
+                    from LibreOffice, OpenOffice or Mozilla sites and put the <code>.dic</code>
+                    and <code>.aff</code> files in <strong>Dict</strong> subfolder of the application.
+                </div>
+            </div>
+            <hr />
+
+            <!-- FAQ Item #2 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-icon"></span>
+                    <span class="faq-question-text">
+                    What is the limit of colors and transparency I can use in my styles?
+                </span>
+                </div>
+                <div class="faq-answer">
+                    In most cases, you can use any valid CSS color format (HEX, RGB, RGBA, etc.).
+                    Transparency is supported by using the alpha channel (e.g. RGBA).
+                </div>
+            </div>
+            <hr />
+
+            <!-- FAQ Item #3 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-icon"></span>
+                    <span class="faq-question-text">
+                    My video file and my subtitle file have different frame rates. Can I work like that?
+                </span>
+                </div>
+                <div class="faq-answer">
+                    Yes, you can. The software will attempt to sync subtitles automatically,
+                    but you can adjust timings if needed.
+                </div>
+            </div>
+            <hr />
+
+            <!-- FAQ Item #4 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-icon"></span>
+                    <span class="faq-question-text">
+                    Are there limitations of languages I can create titles for?
+                </span>
+                </div>
+                <div class="faq-answer">
+                    There are no strict limitations, as long as you have the correct language packs or dictionaries installed.
+                </div>
+            </div>
+            <hr />
+
+            <!-- FAQ Item #5 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-icon"></span>
+                    <span class="faq-question-text">
+                    Can I use dictionaries in other languages? Can I add new dictionaries to the default ones?
+                </span>
+                </div>
+                <div class="faq-answer">
+                    Absolutely. You can install new dictionaries by copying the <code>.dic</code>
+                    and <code>.aff</code> files into the <strong>Dict</strong> folder, or
+                    configure the app to load them from other paths.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Находим все .faq-item
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const icon = item.querySelector('.faq-icon');
+                const answer = item.querySelector('.faq-answer');
+
+                // Первоначальная логика: если item имеет класс .open, значит он развернут
+                if (item.classList.contains('open')) {
+                    icon.textContent = '-';
+                    answer.style.display = 'block';
+                } else {
+                    icon.textContent = '+';
+                    answer.style.display = 'none';
+                }
+
+                // При клике переключаем состояние
+                question.addEventListener('click', () => {
+                    // Если уже открыт, закрываем
+                    if (item.classList.contains('open')) {
+                        item.classList.remove('open');
+                        icon.textContent = '+';
+                        answer.style.display = 'none';
+                    } else {
+                        // Сначала закрываем все остальные
+                        faqItems.forEach(i => {
+                            i.classList.remove('open');
+                            i.querySelector('.faq-icon').textContent = '+';
+                            i.querySelector('.faq-answer').style.display = 'none';
+                        });
+                        // Открываем текущий
+                        item.classList.add('open');
+                        icon.textContent = '-';
+                        answer.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+
+
 @endsection

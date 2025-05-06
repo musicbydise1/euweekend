@@ -33,7 +33,7 @@
                         the pandemic and economic downturn. No doubt if you are a
                         small business owner who has employees directly affected by...
                     </p>
-                    <a href="{{ route('blog.show', $article->slug) }}" class="blog-read-more">Read More</a>
+{{--                    <a href="{{ route('blog.show', $article->slug) }}" class="blog-read-more">Read More</a>--}}
                 </div>
             </div>
 
@@ -117,16 +117,19 @@
         </div>
     </section>
 
-    <section class="cta-section">
-        <div class="container cta-inner">
-            <div class="cta-text">
-                <h2>При оплате занятий сразу <br>вы получите бонусы!</h2>
-                <p>Свяжитесь с нами, и мы с радостью подберём
-                    для вас подходящий курс!</p>
-            </div>
-            <div class="cta-buttons">
-                <a href="#" class="cta-btn cta-btn-black">Send an Application</a>
-                <a href="#" class="cta-btn cta-btn-outline">Request a Call</a>
+    <section>
+        <div class="container">
+            <div class="cta-section">
+                <div class="cta-inner">
+                    <div class="cta-text">
+                        <h2>Хотите Выучить Английский?<br>Не Уверены В Выборе Курса?</h2>
+                        <p>Свяжитесь с нами, и мы с радостью подберем для вас подходящий курс!</p>
+                    </div>
+                    <div class="cta-buttons">
+                        <a href="#" class="cta-btn cta-btn-black">Send an Application</a>
+                        <a href="#" class="cta-btn cta-btn-outline">Request a Call</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

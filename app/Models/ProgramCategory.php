@@ -13,17 +13,42 @@ class ProgramCategory extends Model
 
     protected $fillable = [
         'slug',
-        // 'is_active' // если нужно
     ];
 
+    // 🔗 Программы, входящие в категорию
+    public function programs()
+    {
+        return $this->hasMany(Program::class, 'program_category_id');
+    }
+
+    // 🔗 Переводы
     public function translations()
     {
         return $this->hasMany(ProgramCategoryTranslation::class);
     }
 
-    // Пример связи, если у категории есть много программ
-    public function programs()
+    public function translation($locale = 'ru')
     {
-        return $this->hasMany(Program::class, 'program_category_id');
+        return $this->translations->where('locale', $locale)->first();
+    }
+
+    public function getTitleRuAttribute()
+    {
+        return $this->translation('ru')?->title;
+    }
+
+    public function getDescriptionRuAttribute()
+    {
+        return $this->translation('ru')?->description;
+    }
+
+    public function getTitleEnAttribute()
+    {
+        return $this->translation('en')?->title;
+    }
+
+    public function getDescriptionEnAttribute()
+    {
+        return $this->translation('en')?->description;
     }
 }

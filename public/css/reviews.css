@@ -130,14 +130,16 @@
 }
 
 .stats-section {
-    background: #3F52E3;    /* Фиолетовый/синий цвет */
-    border-radius: 10px;    /* Скруглённые углы */
-    padding: 40px 20px;     /* Внутренние отступы */
-    color: #fff;            /* Белый текст */
+    /* Внутренние отступы */
+    /* Белый текст */
     margin: 40px 0;         /* Отступы сверху и снизу секции */
 }
 
 .stats-inner {
+    background: #3F52E3;    /* Фиолетовый/синий цвет */
+    border-radius: 20px;    /* Скруглённые углы */
+    padding: 45px 75px;
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -148,20 +150,22 @@
 
 /* Левая часть (крупная цифра, подпись) */
 .stats-number h2 {
-    font-size: 48px;        /* Крупный шрифт для цифры */
-    font-weight: 700;
-    margin: 0 0 8px 0;      /* Отступ снизу */
+    font-size: 94px;        /* Крупный шрифт для цифры */
+    font-weight: 600;
+    margin: 0 0 10px 0;      /* Отступ снизу */
 }
 
 .stats-number p {
-    font-size: 16px;
+    font-size: 21px;
+    font-weight: 700;
     margin: 0;
 }
 
 /* Правая часть (описание/цитата) */
 .stats-description p {
-    font-size: 18px;
-    line-height: 1.4;
+    font-size: 30px;
+    line-height: 47px;
+    font-weight: 600;
     margin: 0;
 }
 
@@ -169,6 +173,172 @@
 @media (max-width: 768px) {
     .stats-inner {
         flex-direction: column;
+        text-align: center;
+    }
+}
+
+
+
+/* Затемняющая подложка */
+.review-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 9999; /* Поверх всего */
+}
+.review-modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Само модальное окно */
+.review-modal {
+    position: relative;
+    width: 900px;
+    max-width: 95%;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 16px;
+    overflow: hidden; /* Для скруглённых углов */
+    box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+}
+
+/* Кнопка закрытия (крестик в правом верхнем углу) */
+.close-modal-btn {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 32px;
+    line-height: 1;
+    color: #999;
+    cursor: pointer;
+}
+
+/* Контейнер с двумя колонками */
+.review-modal-inner {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Левая колонка (цветной блок) */
+.review-modal-left {
+    background: #3F52E3; /* Синий/фиолетовый фон как на скриншоте */
+    flex: 0 0 35%; /* ~1/3 ширины */
+    color: #fff;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+}
+.review-modal-left h3 {
+    font-size: 24px;
+    line-height: 1.4;
+    margin: 0;
+    white-space: pre-line; /* Позволяет переносы */
+}
+
+/* Правая колонка (форма) */
+.review-modal-right {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Dotted-box (Прикрепить фото/видео) */
+.dotted-box {
+    border: 2px dashed #CBD2F3;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    color: #3F52E3;
+    position: relative;
+    cursor: pointer;
+}
+.dotted-box:hover {
+    background-color: #f9f9f9;
+}
+.dotted-box .plus-icon {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.hidden-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Формы */
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.form-row input,
+.form-row textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    outline: none;
+}
+.form-row input:focus,
+.form-row textarea:focus {
+    border-color: #3F52E3;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Кнопка отправки */
+.submit-row {
+    text-align: right;
+}
+.btn-submit {
+    padding: 12px 24px;
+    background-color: #FB5B0D;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* "Прикрепить видео" и "Прикрепить фото" можно различать по отдельным классам,
+   если нужен разный размер или иконки
+*/
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .review-modal {
+        margin: 20px;
+    }
+    .review-modal-inner {
+        flex-direction: column;
+    }
+    .review-modal-left {
+        flex: none;
+        width: 100%;
+        min-height: 120px;
+        margin-bottom: 10px;
         text-align: center;
     }
 }

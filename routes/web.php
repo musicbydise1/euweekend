@@ -32,13 +32,13 @@ Route::get('/programs/{slug}', [PublicProgramController::class, 'show'])
 
 
 // Админ-панель (доступна только авторизованным администраторам)
-Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
-    Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-    Route::resource('pages', AdminPageController::class);
-        Route::resource('program_categories', ProgramCategoryController::class);
-    Route::resource('programs', ProgramController::class);
-    Route::resource('days', DayController::class);
-});
+//Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+//    Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+//    Route::resource('pages', AdminPageController::class);
+//        Route::resource('program_categories', ProgramCategoryController::class);
+//    Route::resource('programs', ProgramController::class);
+//    Route::resource('days', DayController::class);
+//});
 
 
 require __DIR__ . '/auth.php';
