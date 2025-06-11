@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Program extends Model
 {
@@ -33,6 +34,19 @@ class Program extends Model
         'duration_hours' => 'integer',
         'stock' => 'integer',
     ];
+
+    /**
+     * Scope a query to filter programs by the given parameters.
+     */
+    public function scopeFilter(Builder $query, array $filters): Builder
+    {
+        return $query
+            ->when($filters['category'] ?? null, function (Builder $query, string $slug) {
+                $query->whereHas('category', fn (Builder $q) => $q->where('slug', $slug));
+            })
+            ->when($filters['start_date'] ?? null, fn (Builder $query, $start) => $query->where('start_time', '>=', $start))
+            ->when($filters['end_date'] ?? null, fn (Builder $query, $end) => $query->where('end_time', '<=', $end));
+    }
 
     // 🔗 Переводы
     public function translations()
