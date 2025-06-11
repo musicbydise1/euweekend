@@ -15,25 +15,13 @@ class ProgramController extends Controller
         $endDate = $request->input('end_date');
         $categorySlug = $request->input('category');
 
-        $query = Program::with('translations');
-
-        // Фильтр по категории
-        if ($categorySlug) {
-            $cat = ProgramCategory::where('slug', $categorySlug)->first();
-            if ($cat) {
-                $query->where('program_category_id', $cat->id);
-            }
-        }
-
-        // Фильтр по дате (предположим, поля start_time/end_time в Program)
-        if ($startDate) {
-            $query->where('start_time', '>=', $startDate);
-        }
-        if ($endDate) {
-            $query->where('end_time', '<=', $endDate);
-        }
-
-        $programs = $query->get();
+        $programs = Program::with('translations')
+            ->filter([
+                'category' => $categorySlug,
+                'start_date' => $startDate,
+                'end_date' => $endDate,
+            ])
+            ->get();
 
         // Получаем все категории, чтобы вывести фильтры
         $categories = ProgramCategory::all();
